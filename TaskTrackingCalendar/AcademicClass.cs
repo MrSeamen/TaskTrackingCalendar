@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace TaskTrackingCalendar
 {
-    class Class1
+    struct AcademicClass
     {
+        private string name { get; set; }
+
+        public AcademicClass(string name)
+        {
+            this.name = name;
+        }
     }
 }
