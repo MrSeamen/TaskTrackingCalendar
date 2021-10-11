@@ -1,0 +1,11 @@
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\net5.0\TaskList.deps.json
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\net5.0\TaskList.dll
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\net5.0\ref\TaskList.dll
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\net5.0\TaskList.pdb
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskList.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskList.AssemblyInfoInputs.cache
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskList.AssemblyInfo.cs
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskList.csproj.CoreCompileInputs.cache
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskList.dll
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\ref\TaskList.dll
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskList.pdb

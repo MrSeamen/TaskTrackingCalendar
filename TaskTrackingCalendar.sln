@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTrackingCalendar", "TaskTrackingCalendar\TaskTrackingCalendar.csproj", "{9C074D1C-3F54-4E44-B786-86511F14BFC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskTrackingCalendar", "TaskTrackingCalendar\TaskTrackingCalendar.csproj", "{9C074D1C-3F54-4E44-B786-86511F14BFC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskList", "TaskList\TaskList.csproj", "{9CC61733-5F02-429C-AAA4-06AD8E7C5D48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListTests", "TaskListTests\TaskListTests.csproj", "{9FEEA0C3-49C6-4544-A020-9FB6E4C75E65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{9C074D1C-3F54-4E44-B786-86511F14BFC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C074D1C-3F54-4E44-B786-86511F14BFC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C074D1C-3F54-4E44-B786-86511F14BFC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC61733-5F02-429C-AAA4-06AD8E7C5D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC61733-5F02-429C-AAA4-06AD8E7C5D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC61733-5F02-429C-AAA4-06AD8E7C5D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC61733-5F02-429C-AAA4-06AD8E7C5D48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FEEA0C3-49C6-4544-A020-9FB6E4C75E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FEEA0C3-49C6-4544-A020-9FB6E4C75E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FEEA0C3-49C6-4544-A020-9FB6E4C75E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FEEA0C3-49C6-4544-A020-9FB6E4C75E65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

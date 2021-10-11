@@ -1,0 +1,14 @@
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\netcoreapp3.1\TaskList.exe
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\netcoreapp3.1\TaskList.deps.json
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\netcoreapp3.1\TaskList.runtimeconfig.json
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\netcoreapp3.1\TaskList.runtimeconfig.dev.json
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\netcoreapp3.1\TaskList.dll
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\bin\Debug\netcoreapp3.1\TaskList.pdb
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\netcoreapp3.1\TaskList.csproj.AssemblyReference.cache
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\netcoreapp3.1\TaskList.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\netcoreapp3.1\TaskList.AssemblyInfoInputs.cache
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\netcoreapp3.1\TaskList.AssemblyInfo.cs
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\netcoreapp3.1\TaskList.csproj.CoreCompileInputs.cache
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\netcoreapp3.1\TaskList.dll
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\netcoreapp3.1\TaskList.pdb
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\netcoreapp3.1\TaskList.genruntimeconfig.cache
