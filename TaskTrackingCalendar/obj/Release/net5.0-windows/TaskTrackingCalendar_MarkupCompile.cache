@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\srw33\Desktop\Class\CSDS 393\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\
+C:\Users\srw33\Desktop\Class\CSDS 393\TaskTrackingCalendar\TaskTrackingCalendar\obj\Release\net5.0-windows\
 TaskTrackingCalendar
 none
 false
-TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+TRACE;RELEASE;NET;NET5_0;NETCOREAPP
 C:\Users\srw33\Desktop\Class\CSDS 393\TaskTrackingCalendar\TaskTrackingCalendar\App.xaml
 2-985035500
 

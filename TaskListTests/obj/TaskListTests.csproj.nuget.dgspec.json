@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskListTests\\TaskListTests.csproj": {}
+    "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskListTests\\TaskListTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskListTests\\TaskListTests.csproj": {
+    "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskListTests\\TaskListTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskListTests\\TaskListTests.csproj",
+        "projectUniqueName": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskListTests\\TaskListTests.csproj",
         "projectName": "TaskListTests",
-        "projectPath": "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskListTests\\TaskListTests.csproj",
-        "packagesPath": "C:\\Users\\vbess\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskListTests\\obj\\",
+        "projectPath": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskListTests\\TaskListTests.csproj",
+        "packagesPath": "C:\\Users\\srw33\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskListTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\vbess\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\srw33\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": ".NETCoreApp,Version=v5.0",
             "projectReferences": {
-              "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\TaskList.csproj": {
-                "projectPath": "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\TaskList.csproj"
+              "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskList\\TaskList.csproj": {
+                "projectPath": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskList\\TaskList.csproj"
               }
             }
           }
@@ -86,20 +86,20 @@
         }
       }
     },
-    "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\TaskList.csproj": {
+    "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskList\\TaskList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\TaskList.csproj",
+        "projectUniqueName": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskList\\TaskList.csproj",
         "projectName": "TaskList",
-        "projectPath": "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\TaskList.csproj",
-        "packagesPath": "C:\\Users\\vbess\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\obj\\",
+        "projectPath": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskList\\TaskList.csproj",
+        "packagesPath": "C:\\Users\\srw33\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskList\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\vbess\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\srw33\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

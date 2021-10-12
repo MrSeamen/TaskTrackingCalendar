@@ -61,20 +61,79 @@ namespace TaskTrackingCalendar
             return false;
         }
 
-        public bool CreateTask(string name, int priority, DateTime date)
+        public bool CreateTask(string aClass, string name, int priority, DateTime date)
         {
-            throw new NotImplementedException();
+            List<Task> list;
+            //checks if class key exists for task list
+            if (tasks.TryGetValue(aClass, out list))
+            {
+                //if task name exists within academic class's task list
+                foreach (Task t in list)
+                {
+                    if (t.GetName().Equals(name))
+                    {
+                        //return false
+                        return false;
+                    }
+                }
+                //else make new task under academic class
+                tasks[aClass].Add(new Task(name, priority, date));
+                return true;
+            }
+            //class doesn't exist, can't create task in academic class's task list
+            return false;
         }
 
-        public bool UpdateTask(Task task, string name = "", int priority = -1, DateTime date = default)
+        public bool UpdateTask(string aClass, Task task, string name, int priority, DateTime date)
         {
-            // only update task with a given val if it is not equal to the defined default value
-            throw new NotImplementedException();
+            List<Task> list;
+            //check if task exists within class key's task list
+            if (tasks.TryGetValue(aClass, out list))
+            {
+                foreach(Task t in list)
+                {
+                    if (t.Equals(task)) //unsure if this is the proper way to compare tasks
+                    {
+                        // only update task with a given val if it is not equal to the defined default values: name = "", priority = -1, date = default
+                        if (!(t.GetName().Equals("") || t.GetPriority() == -1 || t.GetDate().Equals(default))) 
+                        {
+                            tasks.Remove(aClass, out list);
+                            list.Remove(task);
+                            list.Add(new Task(name, priority, date));
+                            tasks.Add(aClass, list);
+                            return true;
+                        } else
+                        {
+                            //target task only has default values
+                            return false;
+                        }
+                    }
+                }
+                //task does not exist within task list
+                return false;
+            }
+            //Class does not exist, cannot update task
+            return false;
         }
 
-        public bool DeleteTask(Task task)
+        public bool DeleteTask(string aClass, Task task)
         {
-            throw new NotImplementedException();
+            List<Task> list;
+            if (tasks.TryGetValue(aClass, out list))
+            {
+                if (list.Contains(task))
+                {
+                    //update class's tasklist
+                    tasks.Remove(aClass, out list);
+                    list.Remove(task);
+                    tasks.Add(aClass, list);
+                    return true;
+                }
+                //Academic class doesn't contain task in its task list
+                return false;
+            }
+            //specified class does not exist
+            return false;
         }
 
         public bool CreateReminder(Task task, DateTime time)
