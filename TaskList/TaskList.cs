@@ -138,7 +138,14 @@ namespace TaskTrackingCalendar
 
         public bool CreateReminder(Task task, DateTime time)
         {
-            throw new NotImplementedException();
+            if (reminders.Contains(new Reminder(task, time)))
+            {
+                return false;
+            } else
+            {
+                reminders.Add(new Reminder(task, time));
+                return true;
+            }
         }
 
         public bool UpdateReminder(Reminder reminder, string taskName = "", DateTime date = default)
@@ -150,7 +157,13 @@ namespace TaskTrackingCalendar
 
         public bool DeleteReminder(Reminder reminder)
         {
-            throw new NotImplementedException();
+            if (reminders.Contains(reminder))
+            {
+                reminders.Remove(reminder);
+                return true;
+            } else {
+                return false;
+            }
         }
 
         public bool CompleteTask(Task task)
