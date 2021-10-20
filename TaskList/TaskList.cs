@@ -148,11 +148,27 @@ namespace TaskTrackingCalendar
             }
         }
 
-        public bool UpdateReminder(Reminder reminder, string taskName = "", DateTime date = default)
+        public bool UpdateReminder(Reminder reminder, string taskName, DateTime date)
         {
             // only update reminder with a given val if it is not equal to the defined default value
             // need to look up the task with the given taskName, if one is given
-            throw new NotImplementedException();
+            //if reminders contains reminder
+            if (reminders.Contains(reminder))
+            {
+                if (!(reminder.GetTask().GetName() == "" && date == default))
+                {
+                    reminders.Add(new Reminder(new Task(taskName, reminder.GetTask().GetPriority(), reminder.GetTask().GetDate()), date));
+                    reminders.Remove(reminder);
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            // else
+            else {
+                //return false
+                return false;
+            }
         }
 
         public bool DeleteReminder(Reminder reminder)
