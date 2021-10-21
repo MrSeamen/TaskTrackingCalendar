@@ -84,7 +84,7 @@ namespace TaskTrackingCalendar
             return false;
         }
 
-        public bool UpdateTask(string aClass, Task task, string name, int priority, DateTime date)
+        public bool UpdateTask(string aClass, Task task, string name = "", int priority = -1, DateTime date = default)
         {
             List<Task> list;
             //check if task exists within class key's task list
@@ -123,6 +123,16 @@ namespace TaskTrackingCalendar
             {
                 if (list.Contains(task))
                 {
+                    //check reminders
+                    foreach(Reminder r in reminders)
+                    {
+                        //if task is in a reminder
+                        if (r.GetTask() == task)
+                        {
+                            reminders.Remove(r);
+                            break;
+                        }
+                    }
                     //update class's tasklist
                     tasks.Remove(aClass, out list);
                     list.Remove(task);
@@ -148,7 +158,7 @@ namespace TaskTrackingCalendar
             }
         }
 
-        public bool UpdateReminder(Reminder reminder, string taskName, DateTime date)
+        public bool UpdateReminder(Reminder reminder, string taskName = "", DateTime date = default)
         {
             // only update reminder with a given val if it is not equal to the defined default value
             // need to look up the task with the given taskName, if one is given
