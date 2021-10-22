@@ -113,5 +113,119 @@ namespace TaskTrackingCalendar.Tests
             // Assert
             Assert.IsFalse(result, "Deleted a class that did not exist.");
         }
+
+        // Currently failing, needs some refactoring to fix
+        [TestMethod]
+        public void TestCompleteTask_WhenTaskExists_Succeeds()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+            taskList.CreateTask("class", "task", 3, DateTime.Now);
+
+            // Act
+            var result = taskList.CompleteTask("class", new Task("task", 3, DateTime.Now));
+
+            // Assert
+            Assert.IsTrue(result, "Complete task failed.");
+
+        }
+
+        [TestMethod]
+        public void TestCompleteTask_WhenNoTask_Fails()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+
+            // Act
+            var result = taskList.CompleteTask("class", new Task("task", 3, DateTime.Now));
+
+            // Assert
+            Assert.IsFalse(result, "Complete task reported true when task did not exist.");
+        }
+
+        [TestMethod]
+        public void TestSaveLoadData_WithDefaultPath_Succeeds()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("classA");
+            taskList.CreateClass("classB");
+
+            taskList.CreateTask("classA", "taskA", 3, DateTime.Now);
+
+            taskList.CreateReminder(new Task("taskA", 3, DateTime.Now), DateTime.Now);
+
+            // Act
+            taskList.SaveData();
+
+            // Assert
+            Assert.IsTrue(taskList.DeleteClass("classA"));
+            Assert.IsTrue(taskList.DeleteClass("classB"));
+
+            Assert.IsFalse(taskList.DeleteClass("classA"));
+            Assert.IsFalse(taskList.DeleteClass("classB"));
+
+            // Act
+            taskList.LoadData();
+
+            // Assert
+            Assert.IsTrue(taskList.DeleteClass("classA"));
+            Assert.IsTrue(taskList.DeleteClass("classB"));
+        }
+
+        [TestMethod]
+        public void TestSaveLoadData_WhenPathValid_Succeeds()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("classA");
+            taskList.CreateClass("classB");
+
+            taskList.CreateTask("classA", "taskA", 3, DateTime.Now);
+
+            taskList.CreateReminder(new Task("taskA", 3, DateTime.Now), DateTime.Now);
+
+            // Act
+            Assert.IsTrue(taskList.SaveData(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)),
+                "Save failed.");
+
+            // Assert
+            Assert.IsTrue(taskList.DeleteClass("classA"));
+            Assert.IsTrue(taskList.DeleteClass("classB"));
+
+            Assert.IsFalse(taskList.DeleteClass("classA"));
+            Assert.IsFalse(taskList.DeleteClass("classB"));
+
+            // Act
+            Assert.IsTrue(taskList.LoadData(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)),
+                "Load failed.");
+
+            // Assert
+            Assert.IsTrue(taskList.DeleteClass("classA"));
+            Assert.IsTrue(taskList.DeleteClass("classB"));
+        }
+
+        [TestMethod]
+        public void TestSaveLoadData_WhenPathInvalid_Fails()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("classA");
+            taskList.CreateClass("classB");
+
+            taskList.CreateTask("classA", "taskA", 3, DateTime.Now);
+
+            taskList.CreateReminder(new Task("taskA", 3, DateTime.Now), DateTime.Now);
+
+            // Act, Assert
+            Assert.IsFalse(taskList.SaveData("garbage path"), "Save reported success with bad path.");
+
+            // Actually save the data
+            Assert.IsTrue(taskList.SaveData());
+
+            Assert.IsFalse(taskList.LoadData("garbage path"), "Load reported success with bad path.");           
+        }
     }
 }

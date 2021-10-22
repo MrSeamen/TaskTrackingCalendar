@@ -9,3 +9,4 @@ C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskL
 C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskList.dll
 C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\ref\TaskList.dll
 C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskList.pdb
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskList\obj\Debug\net5.0\TaskList.csproj.AssemblyReference.cache

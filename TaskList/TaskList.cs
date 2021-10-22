@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace TaskTrackingCalendar
 {
@@ -11,6 +13,8 @@ namespace TaskTrackingCalendar
         private Dictionary<string, List<Task>> tasks;
 
         private List<Reminder> reminders;
+
+        private List<Task> completedTasks;
 
         public TaskList()
         {
@@ -192,9 +196,36 @@ namespace TaskTrackingCalendar
             }
         }
 
-        public bool CompleteTask(Task task)
+        public bool CompleteTask(string aClass, Task task)
         {
-            throw new NotImplementedException();
+            List<Task> list;
+            if (tasks.TryGetValue(aClass, out list))
+            {
+                if (list.Contains(task))
+                {
+                    // Remove any reminders related to the task
+                    foreach (Reminder r in reminders)
+                    {
+                        if (r.GetTask() == task)
+                        {
+                            reminders.Remove(r);
+                        }
+                    }
+
+                    //update class's tasklist
+                    tasks.Remove(aClass, out list);
+                    list.Remove(task);
+                    tasks.Add(aClass, list);
+
+                    completedTasks.Add(task);
+
+                    return true;
+                }
+                // Can't complete a task that doesn't exist
+                return false;
+            }
+            // Can't complete a task in a class that doesn't exist
+            return false;
         }
 
         public (List<Task>, List<Reminder>) SummaryData(bool sortPriority = true, string sortClassName = "")
@@ -212,14 +243,125 @@ namespace TaskTrackingCalendar
             throw new NotImplementedException();
         }
 
-        public bool SaveData(string path = "some default path")
+        public bool SaveData(string path = "")
         {
-            throw new NotImplementedException();
+            var fileName = "SavedData.txt";
+            // Figure out file path - if not default, we're not gonna mess with what they're telling us
+            var filePath = Path.Combine(path, fileName);
+            if (path == "")
+            {
+                // Generate default path
+                var dirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TaskTrackingCalendar");
+                Directory.CreateDirectory(dirPath);
+
+                filePath = Path.Combine(dirPath, fileName);
+            }
+
+            // Serialize data
+            var data = new List<string>();
+            foreach (string key in tasks.Keys)
+            {
+                data.Add("CLASS " + key);
+                var list = new List<Task>();
+                if (tasks.TryGetValue(key, out list))
+                {
+                    foreach (Task task in list)
+                    {
+                        data.Add("TASK " + key + " " + task.GetName() + " " + task.GetPriority() + " " + task.GetDate().ToString());
+                    }
+                } else
+                {
+                    // it dont work
+                    return false;
+                }
+            }
+            foreach (Reminder rem in reminders)
+            {
+                data.Add("REMINDER " + rem.GetTask().GetName() + " " + rem.GetTime().ToString());
+            }
+
+            // Write data to file
+            try
+            {
+                File.WriteAllLines(filePath, data);
+
+            } catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
 
-        public bool LoadData(string path = "some default path")
+        public bool LoadData(string path = "")
         {
-            throw new NotImplementedException();
+            var fileName = "SavedData.txt";
+            // Figure out file path - if not default, we're not gonna mess with what they're telling us
+            var filePath = Path.Combine(path, fileName);
+            if (path == "")
+            {
+                var dirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TaskTrackingCalendar");
+
+                filePath = Path.Combine(dirPath, fileName);
+            }
+
+            // Read data from file
+            string[] lines;
+            try
+            {
+                lines = File.ReadAllLines(filePath);
+
+            } catch (Exception)
+            {
+                return false;
+            }
+
+            // Deserialize data
+            tasks = new Dictionary<string, List<Task>>();
+            reminders = new List<Reminder>();
+            foreach (string s in lines)
+            {
+                var arr = s.Split(" ");
+                switch (arr[0])
+                {
+                    case "CLASS":
+                        tasks.Add(arr[1], new List<Task>());
+                        break;
+                    case "TASK":
+                        List<Task> list;
+                        if (tasks.TryGetValue(arr[1], out list))
+                        {
+                            list.Add(new Task(arr[2], int.Parse(arr[3]), DateTime.Parse(arr[4])));
+                        } else
+                        {
+                            // ooh it dont work right
+                        }
+                        break;
+                    case "REMINDER":
+                        Task t = findTask(arr[1]);
+                        reminders.Add(new Reminder(t, DateTime.Parse(arr[2])));
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+            return true;
+        }
+
+        public Task findTask(string name)
+        {
+            foreach(List<Task> l in tasks.Values)
+            {
+                foreach(Task t in l)
+                {
+                    if (t.GetName() == name)
+                    {
+                        return t;
+                    }
+                }
+            }
+            throw new ArgumentException("task doesn't exist");
         }
     }
 }
