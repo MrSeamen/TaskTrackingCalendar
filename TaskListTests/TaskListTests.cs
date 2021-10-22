@@ -329,31 +329,6 @@ namespace TaskTrackingCalendar.Tests
         }
 
         [TestMethod]
-        public void TestSummaryData_WhenSorted_WithClass()
-        {
-            // Arrange
-            var taskList = new TaskList();
-            taskList.CreateClass("ClassA");
-            taskList.CreateTask("ClassA", "HW1", 2, default);
-            taskList.CreateTask("ClassA", "HW2", 1, default);
-            taskList.CreateClass("ClassB");
-            taskList.CreateTask("ClassB", "Project", 2, default);
-            taskList.CreateTask("ClassB", "Exam", 3, default);
-            taskList.CreateReminder("ClassB", "Project", taskList.findTask("Project").GetDate());
-            taskList.CreateReminder("ClassB", "Exam", taskList.findTask("Exam").GetDate());
-
-            List<Task> tasks = new List<Task>() { new Task("Project", 2, default), new Task("Exam", 3, default) };
-            List<Reminder> reminders = new List<Reminder>() { new Reminder("ClassB", "Project", default), new Reminder("ClassB", "Exam", default) };
-
-            // Act
-            var result = taskList.SummaryData(true, "ClassB");
-
-            // Assert
-            CollectionAssert.AreEqual(result.Item1, tasks);
-            CollectionAssert.AreEqual(result.Item2, reminders);
-        }
-
-        [TestMethod]
         public void TestSummaryData_WhenNotSorted_WithClass()
         {
             // Arrange
@@ -378,56 +353,6 @@ namespace TaskTrackingCalendar.Tests
             CollectionAssert.AreEqual(result.Item2, reminders);
         }
 
-        [TestMethod]
-        public void TestSummaryData_WhenSorted_WithOutClass()
-        {
-            // Arrange
-            var taskList = new TaskList();
-            taskList.CreateClass("ClassA");
-            taskList.CreateTask("ClassA", "HW1", 2, default);
-            taskList.CreateTask("ClassA", "HW2", 1, default);
-            taskList.CreateClass("ClassB");
-            taskList.CreateTask("ClassB", "Project", 2, default);
-            taskList.CreateTask("ClassB", "Exam", 3, default);
-            taskList.CreateReminder("ClassB", "Project", taskList.findTask("Project").GetDate());
-            taskList.CreateReminder("ClassB", "Exam", taskList.findTask("Exam").GetDate());
-
-            List<Task> tasks = new List<Task>() { new Task("HW2", 1, default), new Task("HW1", 2, default), new Task("Project", 2, default), new Task("Exam", 3, default) };
-            List<Reminder> reminders = new List<Reminder>() { new Reminder("ClassB", "Project", default), new Reminder("ClassB", "Exam", default) };
-
-            // Act
-            var result = taskList.SummaryData(true);
-
-            // Assert
-            CollectionAssert.AreEqual(result.Item1, tasks);
-            CollectionAssert.AreEqual(result.Item2, reminders);
-        }
-
-        [TestMethod]
-        public void TestSummaryData_WhenNotSorted_WithOutClass()
-        {
-            // Arrange
-            var taskList = new TaskList();
-            taskList.CreateClass("ClassA");
-            taskList.CreateTask("ClassA", "HW1", 2, default);
-            taskList.CreateTask("ClassA", "HW2", 1, default);
-            taskList.CreateClass("ClassB");
-            taskList.CreateTask("ClassB", "Project", 2, default);
-            taskList.CreateTask("ClassB", "Exam", 3, default);
-            taskList.CreateReminder("ClassB", "Project", taskList.findTask("Project").GetDate());
-            taskList.CreateReminder("ClassB", "Exam", taskList.findTask("Exam").GetDate());
-
-            List<Task> tasks = new List<Task>() { new Task("HW1", 2, default), new Task("HW2", 1, default), new Task("Project", 2, default), new Task("Exam", 3, default) };
-            List<Reminder> reminders = new List<Reminder>() { new Reminder("ClassB", "Project", default), new Reminder("ClassB", "Exam", default) };
-
-            // Act
-            var result = taskList.SummaryData(false);
-
-            // Assert
-            CollectionAssert.AreEqual(result.Item1, tasks);
-            CollectionAssert.AreEqual(result.Item2, reminders);
-        }
-
         [TestMethod] 
         public void TestSummaryData_NoClass()
         {
@@ -440,25 +365,6 @@ namespace TaskTrackingCalendar.Tests
             // Assert
             CollectionAssert.AreEqual(result.Item1, new List<Task>());
             CollectionAssert.AreEqual(result.Item2, new List<Reminder>());
-        }
-
-
-        [TestMethod]
-        public void TestCalendarData()
-        {
-            // Arrange
-            var taskList = new TaskList();
-            taskList.CreateClass("ClassA");
-            taskList.CreateTask("ClassA", "HW1", 1, default);
-            taskList.CreateTask("ClassA", "HW2", 1, default);
-            taskList.CreateClass("ClassB");
-            taskList.CreateTask("ClassB", "Project", 1, default);
-            taskList.CreateTask("ClassB", "Exam", 1, default);
-
-            List<Task> calendarData = new List<Task>() { new Task("HW1", 1, default), new Task("HW2", 1, default), new Task("Project", 1, default), new Task("Exam", 1, default) };
-
-            // Act, Assert
-            CollectionAssert.AreEqual(taskList.CalendarData(), calendarData);
         }
 
         [TestMethod]
