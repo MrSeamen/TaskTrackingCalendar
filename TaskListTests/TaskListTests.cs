@@ -145,6 +145,117 @@ namespace TaskTrackingCalendar.Tests
             Assert.IsFalse(result, "Complete task reported true when task did not exist.");
         }
 
+        // sorted with class
+        [TestMethod]
+        public void TestSummaryDataWhenSortedWithClass()
+        {
+            var taskList = new TaskList();
+            taskList.CreateClass("ClassA");
+            taskList.CreateTask("ClassA", "HW1", 2, default);
+            taskList.CreateTask("ClassA", "HW2", 1, default);
+            taskList.CreateClass("ClassB");
+            taskList.CreateTask("ClassB", "Project", 2, default);
+            taskList.CreateTask("ClassB", "Exam", 3, default);
+            taskList.CreateReminder(taskList.findTask("Project"), taskList.findTask("Project").GetDate());
+            taskList.CreateReminder(taskList.findTask("Exam"), taskList.findTask("Exam").GetDate());
+            List<Task> tasks = new List<Task>() { new Task("Project", 2, default), new Task("Exam", 3, default) };
+            List<Reminder> reminders = new List<Reminder>() { new Reminder(new Task("Project", 2, default), default), new Reminder(new Task("Exam", 3, default), default) };
+
+            Assert.Equals(taskList.SummaryData(true, "ClassB"), (tasks, reminders));
+
+        }
+
+        // not sorted with class
+        [TestMethod]
+        public void TestSummaryDataWhenNotSortedWithClass()
+        {
+            var taskList = new TaskList();
+            taskList.CreateClass("ClassA");
+            taskList.CreateTask("ClassA", "HW1", 2, default);
+            taskList.CreateTask("ClassA", "HW2", 1, default);
+            taskList.CreateClass("ClassB");
+            taskList.CreateTask("ClassB", "Project", 2, default);
+            taskList.CreateTask("ClassB", "Exam", 3, default);
+            taskList.CreateReminder(taskList.findTask("Project"), taskList.findTask("Project").GetDate());
+            taskList.CreateReminder(taskList.findTask("Exam"), taskList.findTask("Exam").GetDate());
+            List<Task> tasks = new List<Task>() { new Task("HW1", 2, default), new Task("HW2", 1, default);
+            List<Reminder> reminders = new List<Reminder>();
+
+            Assert.Equals(taskList.SummaryData(false, "ClassA"), (tasks, reminders));
+        }
+
+        // sorted without class
+        [TestMethod]
+        public void TestSummaryDataWhenSortedWithOutClass()
+        {
+            var taskList = new TaskList();
+            taskList.CreateClass("ClassA");
+            taskList.CreateTask("ClassA", "HW1", 2, default);
+            taskList.CreateTask("ClassA", "HW2", 1, default);
+            taskList.CreateClass("ClassB");
+            taskList.CreateTask("ClassB", "Project", 2, default);
+            taskList.CreateTask("ClassB", "Exam", 3, default);
+            taskList.CreateReminder(taskList.findTask("Project"), taskList.findTask("Project").GetDate());
+            taskList.CreateReminder(taskList.findTask("Exam"), taskList.findTask("Exam").GetDate());
+            List<Task> tasks = new List<Task>() { new Task("HW2", 1, default), new Task("HW1", 2, default), new Task("Project", 2, default), new Task("Exam", 3, default) };
+            List<Reminder> reminders = new List<Reminder>() { new Reminder(new Task("Project", 2, default), default), new Reminder(new Task("Exam", 3, default), default) };
+
+            Assert.Equals(taskList.SummaryData(true), (tasks, reminders));
+        }
+
+        // not sorted without class
+        [TestMethod]
+        public void TestSummaryDataWhenNotSortedWithOutClass()
+        {
+            var taskList = new TaskList();
+            taskList.CreateClass("ClassA");
+            taskList.CreateTask("ClassA", "HW1", 2, default);
+            taskList.CreateTask("ClassA", "HW2", 1, default);
+            taskList.CreateClass("ClassB");
+            taskList.CreateTask("ClassB", "Project", 2, default);
+            taskList.CreateTask("ClassB", "Exam", 3, default);
+            taskList.CreateReminder(taskList.findTask("Project"), taskList.findTask("Project").GetDate());
+            taskList.CreateReminder(taskList.findTask("Exam"), taskList.findTask("Exam").GetDate());
+            List<Task> tasks = new List<Task>() { new Task("HW1", 2, default), new Task("HW2", 1, default), new Task("Project", 2, default), new Task("Exam", 3, default) };
+            List<Reminder> reminders = new List<Reminder>() { new Reminder(new Task("Project", 2, default), default), new Reminder(new Task("Exam", 3, default), default) };
+
+            Assert.Equals(taskList.SummaryData(false), (tasks, reminders));
+        }
+
+        // no class exists
+        [TestMethod] 
+        public void TestSummaryDataNoClass()
+        {
+            var taskList = new TaskList();
+
+            Assert.Equals(taskList.SummaryData(), (new List<Task>(), new List<Reminder>()));
+        }
+
+
+        [TestMethod]
+        public void TestCalendarData()
+        {
+            var taskList = new TaskList();
+            taskList.CreateClass("ClassA");
+            taskList.CreateTask("ClassA", "HW1", 1, default);
+            taskList.CreateTask("ClassA", "HW2", 1, default);
+            taskList.CreateClass("ClassB");
+            taskList.CreateTask("ClassB", "Project", 1, default);
+            taskList.CreateTask("ClassB", "Exam", 1, default);
+
+            List<Task> calendarData = new List<Task>() { new Task("HW1", 1, default), new Task("HW2", 1, default), new Task("Project", 1, default), new Task("Exam", 1, default) };
+
+            Assert.Equals(taskList.CalendarData(), calendarData);
+        }
+
+        [TestMethod]
+        public void TestCalendarNoValues()
+        {
+            var taskList = new TaskList();
+
+            Assert.Equals(taskList.CalendarData(), new List<Task>());
+        }
+
         [TestMethod]
         public void TestSaveLoadData_WithDefaultPath_Succeeds()
         {
