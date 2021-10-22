@@ -274,21 +274,22 @@ namespace TaskTrackingCalendar
             return (taskList, reminderList);
         }
 
+        //helper method for Summary Data
         public List<Task> selectionSort(List<Task> taskList)
         {
             List<Task> workingList = new List<Task>(taskList);
             //selection sort O(n^2)
             for (int i = 0; i < workingList.Capacity; i++)
             {
-                Task current = new Task(workingList[i].GetName(), workingList[i].GetPriority(), workingList[i].GetDate());
-                int maxPosition = 0;
+                int maxPosition = -1;
                 for (int j = 0; j < workingList.Capacity; j++)
                 {
-                    if (current.GetPriority() > workingList.ElementAt(j).GetPriority())
+                    if (workingList[i].GetPriority() > workingList[j].GetPriority())
                     {
                         maxPosition = j;
                     }
                 }
+                Task current = new Task(workingList[i].GetName(), workingList[i].GetPriority(), workingList[i].GetDate());
                 Task destinationTask = new Task(workingList[maxPosition].GetName(), workingList[maxPosition].GetPriority(), workingList[maxPosition].GetDate());
                 workingList[maxPosition] = current;
                 workingList[i] = destinationTask;
@@ -302,7 +303,21 @@ namespace TaskTrackingCalendar
             {
                 month = DateTime.Now.Month;
             }
-            throw new NotImplementedException();
+            List<Task> taskList = new List<Task>();
+            if (tasks.Values.Any())
+            {
+                foreach (List<Task> l in tasks.Values)
+                {
+                    foreach (Task t in l)
+                    {
+                        if (t.GetDate().Month.Equals(month))
+                        {
+                            taskList.Add(t);
+                        }
+                    }
+                }
+            }
+            return taskList;
         }
 
         public bool SaveData(string path = "")
