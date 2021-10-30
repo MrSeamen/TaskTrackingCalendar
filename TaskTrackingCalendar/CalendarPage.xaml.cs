@@ -19,9 +19,24 @@ namespace TaskTrackingCalendar
     /// </summary>
     public partial class CalendarPage : Window
     {
-        public CalendarPage()
+        TaskList list;
+        SecretMainWindow mw;
+
+        public CalendarPage(TaskList newList, SecretMainWindow parent)
         {
+            list = newList;
+            mw = parent;
             InitializeComponent();
+        }
+        private void OnOpenSummary(object sender, RoutedEventArgs e)
+        {
+            mw.OpenSummaryPage(list);
+            Close();
+        }
+
+        private void OnClose(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mw.Close();
         }
     }
 }

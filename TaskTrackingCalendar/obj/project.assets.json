@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net5.0-windows7.0": {}
+    "net5.0-windows7.0": {
+      "TaskList/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/TaskList.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TaskList.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "TaskList/1.0.0": {
+      "type": "project",
+      "path": "../TaskList/TaskList.csproj",
+      "msbuildProject": "../TaskList/TaskList.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0-windows7.0": []
+    "net5.0-windows7.0": [
+      "TaskList >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\vbess\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\TaskList.csproj": {
+              "projectPath": "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\TaskList.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
