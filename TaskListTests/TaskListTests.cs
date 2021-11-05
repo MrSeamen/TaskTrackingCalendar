@@ -114,6 +114,189 @@ namespace TaskTrackingCalendar.Tests
             Assert.IsFalse(result, "Deleted a class that did not exist.");
         }
 
+        [TestMethod]
+        public void TestCreateTask_WhenValid_Succeeds()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+
+            // Act
+            var result = taskList.CreateTask("class", "task", 2, DateTime.Now);
+
+            // Assert
+            Assert.IsTrue(result, "Couldn't create task.");
+        }
+
+        [TestMethod]
+        public void TestCreateTask_WhenInvalid_Fails()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+
+            // Act
+            var result1 = taskList.CreateTask("class", "task", 2, DateTime.Now);
+            var result2 = taskList.CreateTask("class", "task", 2, DateTime.Now);
+
+            // Assert
+            Assert.IsTrue(result1, "Couldn't create task.");
+            Assert.IsFalse(result2, "Created two tasks with same name.");
+        }
+
+        [TestMethod]
+        public void TestUpdateTask_WhenValid_Succeeds()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+            taskList.CreateTask("class", "task", 2, DateTime.Now);
+
+            // Act
+            var result = taskList.UpdateTask("class", "task", "newname", 3, DateTime.Now);
+
+            // Assert
+            Assert.IsTrue(result, "Couldn't update task.");
+        }
+
+        [TestMethod]
+        public void TestUpdateTask_WhenInvalid_Fails()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+
+            // Act
+            var result = taskList.UpdateTask("class", "task", "newname", 3, DateTime.Now);
+
+            // Assert
+            Assert.IsFalse(result, "Updated task that didn't exist.");
+        }
+
+        [TestMethod]
+        public void TestDeleteTask_WhenValid_Succeeds()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+            taskList.CreateTask("class", "task", 2, DateTime.Now);
+
+            // Act
+            var result = taskList.DeleteTask("class", "task");
+
+            // Assert
+            Assert.IsTrue(result, "Couldn't delete task.");
+        }
+
+        [TestMethod]
+        public void TestDeleteTask_WhenInvalid_Fails()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+
+            // Act
+            var result = taskList.DeleteTask("class", "task");
+
+            // Assert
+            Assert.IsFalse(result, "Deleted task that didn't exist.");
+        }
+
+        [TestMethod]
+        public void TestCreateReminder_WhenValid_Succeeds()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+            taskList.CreateTask("class", "task", 2, DateTime.Now);
+
+            // Act
+            var result = taskList.CreateReminder("class", "task", DateTime.Now);
+
+            // Assert
+            Assert.IsTrue(result, "Couldn't create reminder.");
+        }
+
+        [TestMethod]
+        public void TestCreateReminder_WhenInvalid_Fails()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+            taskList.CreateTask("class", "task", 2, DateTime.Now);
+
+            // Act
+            DateTime time = DateTime.Now;
+            var result1 = taskList.CreateReminder("class", "task", time);
+            var result2 = taskList.CreateReminder("class", "task", time);
+
+            // Assert
+            Assert.IsTrue(result1, "Couldn't create reminder.");
+            Assert.IsFalse(result2, "Created duplicate reminder.");
+        }
+
+        [TestMethod]
+        public void TestUpdateReminder_WhenValid_Succeeds()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+            taskList.CreateTask("class", "task", 2, DateTime.Now);
+            taskList.CreateReminder("class", "task", DateTime.Now);
+
+            // Act
+            var result = taskList.UpdateReminder("class", "task", DateTime.Now);
+
+            // Assert
+            Assert.IsTrue(result, "Could not update reminder.");
+        }
+
+        [TestMethod]
+        public void TestUpdateReminder_WhenInvalid_Fails()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+            taskList.CreateTask("class", "task", 2, DateTime.Now);
+
+            // Act
+            var result = taskList.UpdateReminder("class", "task", DateTime.Now);
+
+            // Assert
+            Assert.IsFalse(result, "Updated reminder that doesn't exist.");
+        }
+
+        [TestMethod]
+        public void TestDeleteReminder_WhenValid_Succeeds()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+            taskList.CreateTask("class", "task", 2, DateTime.Now);
+            taskList.CreateReminder("class", "task", DateTime.Now);
+
+            // Act
+            var result = taskList.DeleteReminder("class", "task");
+
+            // Assert
+            Assert.IsTrue(result, "Could not delete reminder.");
+        }
+
+        [TestMethod]
+        public void TestDeleteReminder_WhenInvalid_Fails()
+        {
+            // Arrange
+            var taskList = new TaskList();
+            taskList.CreateClass("class");
+            taskList.CreateTask("class", "task", 2, DateTime.Now);
+
+            // Act
+            var result = taskList.DeleteReminder("class", "task");
+
+            // Assert
+            Assert.IsFalse(result, "Deleted reminder that didn't exist.");
+        }
+
         // Currently failing, needs some refactoring to fix
         [TestMethod]
         public void TestCompleteTask_WhenTaskExists_Succeeds()
@@ -124,7 +307,7 @@ namespace TaskTrackingCalendar.Tests
             taskList.CreateTask("class", "task", 3, DateTime.Now);
 
             // Act
-            var result = taskList.CompleteTask("class", new Task("task", 3, DateTime.Now));
+            var result = taskList.CompleteTask("class", "task");
 
             // Assert
             Assert.IsTrue(result, "Complete task failed.");
@@ -139,16 +322,16 @@ namespace TaskTrackingCalendar.Tests
             taskList.CreateClass("class");
 
             // Act
-            var result = taskList.CompleteTask("class", new Task("task", 3, DateTime.Now));
+            var result = taskList.CompleteTask("class", "task");
 
             // Assert
             Assert.IsFalse(result, "Complete task reported true when task did not exist.");
         }
 
-        // sorted with class
         [TestMethod]
-        public void TestSummaryDataWhenSortedWithClass()
+        public void TestSummaryData_WhenNotSorted_WithClass()
         {
+            // Arrange
             var taskList = new TaskList();
             taskList.CreateClass("ClassA");
             taskList.CreateTask("ClassA", "HW1", 2, default);
@@ -156,104 +339,42 @@ namespace TaskTrackingCalendar.Tests
             taskList.CreateClass("ClassB");
             taskList.CreateTask("ClassB", "Project", 2, default);
             taskList.CreateTask("ClassB", "Exam", 3, default);
-            taskList.CreateReminder(taskList.findTask("Project"), taskList.findTask("Project").GetDate());
-            taskList.CreateReminder(taskList.findTask("Exam"), taskList.findTask("Exam").GetDate());
-            List<Task> tasks = new List<Task>() { new Task("Project", 2, default), new Task("Exam", 3, default) };
-            List<Reminder> reminders = new List<Reminder>() { new Reminder(new Task("Project", 2, default), default), new Reminder(new Task("Exam", 3, default), default) };
+            taskList.CreateReminder("ClassB", "Project", taskList.findTask("Project").GetDate());
+            taskList.CreateReminder("ClassB", "Exam", taskList.findTask("Exam").GetDate());
 
-            Assert.Equals(taskList.SummaryData(true, "ClassB"), (tasks, reminders));
-
-        }
-
-        // not sorted with class
-        [TestMethod]
-        public void TestSummaryDataWhenNotSortedWithClass()
-        {
-            var taskList = new TaskList();
-            taskList.CreateClass("ClassA");
-            taskList.CreateTask("ClassA", "HW1", 2, default);
-            taskList.CreateTask("ClassA", "HW2", 1, default);
-            taskList.CreateClass("ClassB");
-            taskList.CreateTask("ClassB", "Project", 2, default);
-            taskList.CreateTask("ClassB", "Exam", 3, default);
-            taskList.CreateReminder(taskList.findTask("Project"), taskList.findTask("Project").GetDate());
-            taskList.CreateReminder(taskList.findTask("Exam"), taskList.findTask("Exam").GetDate());
             List<Task> tasks = new List<Task>() { new Task("HW1", 2, default), new Task("HW2", 1, default) };
             List<Reminder> reminders = new List<Reminder>();
 
-            Assert.Equals(taskList.SummaryData(false, "ClassA"), (tasks, reminders));
+            // Act
+            var result = taskList.SummaryData(false, "ClassA");
+
+            // Assert
+            CollectionAssert.AreEqual(result.Item1, tasks);
+            CollectionAssert.AreEqual(result.Item2, reminders);
         }
 
-        // sorted without class
-        [TestMethod]
-        public void TestSummaryDataWhenSortedWithOutClass()
-        {
-            var taskList = new TaskList();
-            taskList.CreateClass("ClassA");
-            taskList.CreateTask("ClassA", "HW1", 2, default);
-            taskList.CreateTask("ClassA", "HW2", 1, default);
-            taskList.CreateClass("ClassB");
-            taskList.CreateTask("ClassB", "Project", 2, default);
-            taskList.CreateTask("ClassB", "Exam", 3, default);
-            taskList.CreateReminder(taskList.findTask("Project"), taskList.findTask("Project").GetDate());
-            taskList.CreateReminder(taskList.findTask("Exam"), taskList.findTask("Exam").GetDate());
-            List<Task> tasks = new List<Task>() { new Task("HW2", 1, default), new Task("HW1", 2, default), new Task("Project", 2, default), new Task("Exam", 3, default) };
-            List<Reminder> reminders = new List<Reminder>() { new Reminder(new Task("Project", 2, default), default), new Reminder(new Task("Exam", 3, default), default) };
-
-            Assert.Equals(taskList.SummaryData(true), (tasks, reminders));
-        }
-
-        // not sorted without class
-        [TestMethod]
-        public void TestSummaryDataWhenNotSortedWithOutClass()
-        {
-            var taskList = new TaskList();
-            taskList.CreateClass("ClassA");
-            taskList.CreateTask("ClassA", "HW1", 2, default);
-            taskList.CreateTask("ClassA", "HW2", 1, default);
-            taskList.CreateClass("ClassB");
-            taskList.CreateTask("ClassB", "Project", 2, default);
-            taskList.CreateTask("ClassB", "Exam", 3, default);
-            taskList.CreateReminder(taskList.findTask("Project"), taskList.findTask("Project").GetDate());
-            taskList.CreateReminder(taskList.findTask("Exam"), taskList.findTask("Exam").GetDate());
-            List<Task> tasks = new List<Task>() { new Task("HW1", 2, default), new Task("HW2", 1, default), new Task("Project", 2, default), new Task("Exam", 3, default) };
-            List<Reminder> reminders = new List<Reminder>() { new Reminder(new Task("Project", 2, default), default), new Reminder(new Task("Exam", 3, default), default) };
-
-            Assert.Equals(taskList.SummaryData(false), (tasks, reminders));
-        }
-
-        // no class exists
         [TestMethod] 
-        public void TestSummaryDataNoClass()
+        public void TestSummaryData_NoClass()
         {
+            // Arrange
             var taskList = new TaskList();
 
-            Assert.Equals(taskList.SummaryData(), (new List<Task>(), new List<Reminder>()));
-        }
+            // Act
+            var result = taskList.SummaryData();
 
-
-        [TestMethod]
-        public void TestCalendarData()
-        {
-            var taskList = new TaskList();
-            taskList.CreateClass("ClassA");
-            taskList.CreateTask("ClassA", "HW1", 1, default);
-            taskList.CreateTask("ClassA", "HW2", 1, default);
-            taskList.CreateClass("ClassB");
-            taskList.CreateTask("ClassB", "Project", 1, default);
-            taskList.CreateTask("ClassB", "Exam", 1, default);
-
-            List<Task> calendarData = new List<Task>() { new Task("HW1", 1, default), new Task("HW2", 1, default), new Task("Project", 1, default), new Task("Exam", 1, default) };
-
-            Assert.Equals(taskList.CalendarData(), calendarData);
+            // Assert
+            CollectionAssert.AreEqual(result.Item1, new List<Task>());
+            CollectionAssert.AreEqual(result.Item2, new List<Reminder>());
         }
 
         [TestMethod]
-        public void TestCalendarNoValues()
+        public void TestCalendarData_NoValues()
         {
+            // Arrange
             var taskList = new TaskList();
 
-            Assert.Equals(taskList.CalendarData(), new List<Task>());
+            // Act, Assert
+            CollectionAssert.AreEqual(taskList.CalendarData(), new List<Task>());
         }
 
         [TestMethod]
@@ -266,7 +387,7 @@ namespace TaskTrackingCalendar.Tests
 
             taskList.CreateTask("classA", "taskA", 3, DateTime.Now);
 
-            taskList.CreateReminder(new Task("taskA", 3, DateTime.Now), DateTime.Now);
+            taskList.CreateReminder("ClassA", "taskA", DateTime.Now);
 
             // Act
             taskList.SaveData();
@@ -296,7 +417,7 @@ namespace TaskTrackingCalendar.Tests
 
             taskList.CreateTask("classA", "taskA", 3, DateTime.Now);
 
-            taskList.CreateReminder(new Task("taskA", 3, DateTime.Now), DateTime.Now);
+            taskList.CreateReminder("ClassA", "taskA", DateTime.Now);
 
             // Act
             Assert.IsTrue(taskList.SaveData(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)),
@@ -328,7 +449,7 @@ namespace TaskTrackingCalendar.Tests
 
             taskList.CreateTask("classA", "taskA", 3, DateTime.Now);
 
-            taskList.CreateReminder(new Task("taskA", 3, DateTime.Now), DateTime.Now);
+            taskList.CreateReminder("classA", "taskA", DateTime.Now);
 
             // Act, Assert
             Assert.IsFalse(taskList.SaveData("garbage path"), "Save reported success with bad path.");

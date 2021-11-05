@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "TaskTrackingCalendar/1.0.0": {
+        "dependencies": {
+          "TaskList": "1.0.0"
+        },
+        "runtime": {
+          "TaskTrackingCalendar.dll": {}
+        }
+      },
+      "TaskList/1.0.0": {
+        "runtime": {
+          "TaskList.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TaskTrackingCalendar/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TaskList/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

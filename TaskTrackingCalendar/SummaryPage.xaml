@@ -5,8 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskTrackingCalendar"
         mc:Ignorable="d"
-        Title="SummaryPage" Height="450" Width="800">
+        Title="SummaryPage" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Closing="OnClose">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5">
+            <Button Margin="5" Padding="5" Click="OnCreateClass">
+                <TextBlock Text="Create Class" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Margin="5" Padding="5" Click="OnEditClass">
+                <TextBlock Text="Edit Class" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Margin="5" Padding="5" Click="OnDeleteClass">
+                <TextBlock Text="Delete Class" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Margin="5" Padding="5" Click="OnCreateTask">
+                <TextBlock Text="Create Task" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Margin="5" Padding="5" Click="OnEditTask">
+                <TextBlock Text="Edit Task" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Margin="5" Padding="5" Click="OnDeleteTask">
+                <TextBlock Text="Delete Task" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Margin="5" Padding="5" Click="OnCreateReminder">
+                <TextBlock Text="Create Reminder" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Margin="5" Padding="5" Click="OnEditReminder">
+                <TextBlock Text="Edit Reminder" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Margin="5" Padding="5" Click="OnDeleteReminder">
+                <TextBlock Text="Delete Reminder" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+        </StackPanel>
+        <Button Grid.Column="2" VerticalAlignment="Bottom" Margin="10" Padding="5" Click="OnOpenCalendar">
+            <TextBlock Text="Open Calendar Page" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
     </Grid>
 </Window>

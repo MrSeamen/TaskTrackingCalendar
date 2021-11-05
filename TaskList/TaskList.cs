@@ -20,6 +20,22 @@ namespace TaskTrackingCalendar
         {
             tasks = new Dictionary<string, List<Task>>();
             reminders = new List<Reminder>();
+            completedTasks = new List<Task>();
+        }
+
+        public Task FindTask(string className, string taskName)
+        {
+            List<Task> list;
+            if (tasks.TryGetValue(className, out list)) {
+                foreach (Task t in list)
+                {
+                    if (t.GetName() == taskName)
+                    {
+                        return t;
+                    }
+                }
+            }
+            throw new ArgumentException("Task does not exist");
         }
 
         public bool CreateClass(string name)
@@ -67,165 +83,179 @@ namespace TaskTrackingCalendar
 
         public bool CreateTask(string aClass, string name, int priority, DateTime date)
         {
-            List<Task> list;
-            //checks if class key exists for task list
-            if (tasks.TryGetValue(aClass, out list))
+            // If the class doesn't exist, return false
+            if (!tasks.ContainsKey(aClass))
             {
-                //if task name exists within academic class's task list
-                foreach (Task t in list)
-                {
-                    if (t.GetName().Equals(name))
-                    {
-                        //return false
-                        return false;
-                    }
-                }
-                //else make new task under academic class
+                return false;
+            }
+
+            // If a task with the name already exists, return false
+            try
+            {
+                FindTask(aClass, name);
+                // If no exception was thrown, a task with the name already exists
+                return false;
+            } catch (ArgumentException)
+            {
+                // Go ahead and create the task
                 tasks[aClass].Add(new Task(name, priority, date));
                 return true;
             }
-            //class doesn't exist, can't create task in academic class's task list
-            return false;
         }
 
-        public bool UpdateTask(string aClass, Task task, string name = "", int priority = -1, DateTime date = default)
+        public bool UpdateTask(string aClass, string taskName, string name = "", int priority = -1, DateTime date = default)
         {
-            List<Task> list;
-            //check if task exists within class key's task list
-            if (tasks.TryGetValue(aClass, out list))
+            // If the class doesn't exist, return false
+            if (!tasks.ContainsKey(aClass))
             {
-                foreach(Task t in list)
-                {
-                    if (t.Equals(task)) //unsure if this is the proper way to compare tasks
-                    {
-                        // only update task with a given val if it is not equal to the defined default values: name = "", priority = -1, date = default
-                        if (!(t.GetName().Equals("") || t.GetPriority() == -1 || t.GetDate().Equals(default))) 
-                        {
-                            tasks.Remove(aClass, out list);
-                            list.Remove(task);
-                            list.Add(new Task(name, priority, date));
-                            tasks.Add(aClass, list);
-                            return true;
-                        } else
-                        {
-                            //target task only has default values
-                            return false;
-                        }
-                    }
-                }
-                //task does not exist within task list
                 return false;
             }
-            //Class does not exist, cannot update task
-            return false;
-        }
 
-        public bool DeleteTask(string aClass, Task task)
-        {
-            List<Task> list;
-            if (tasks.TryGetValue(aClass, out list))
+            // Confirm that the task exists
+            Task t;
+            try
             {
-                if (list.Contains(task))
-                {
-                    //check reminders
-                    foreach(Reminder r in reminders)
-                    {
-                        //if task is in a reminder
-                        if (r.GetTask() == task)
-                        {
-                            reminders.Remove(r);
-                            break;
-                        }
-                    }
-                    //update class's tasklist
-                    tasks.Remove(aClass, out list);
-                    list.Remove(task);
-                    tasks.Add(aClass, list);
-                    return true;
-                }
-                //Academic class doesn't contain task in its task list
+                t = FindTask(aClass, taskName);
+            }
+            catch (ArgumentException)
+            {
+                // The task didn't exist to update
                 return false;
             }
-            //specified class does not exist
-            return false;
+
+            // Update the task
+            if (name != "")
+            {
+                t.SetName(name);
+            }
+            if (priority != -1)
+            {
+                t.SetPriority(priority);
+            }
+            if (!date.Equals(default))
+            {
+                t.SetDate(date);
+            }
+            return true;
         }
 
-        public bool CreateReminder(Task task, DateTime time)
+        public bool DeleteTask(string aClass, string taskName)
         {
-            if (reminders.Contains(new Reminder(task, time)))
+            // If the class doesn't exist, return false
+            if (!tasks.ContainsKey(aClass))
             {
                 return false;
-            } else
-            {
-                reminders.Add(new Reminder(task, time));
-                return true;
             }
+
+            // Confirm that the task exists
+            Task t;
+            try
+            {
+                t = FindTask(aClass, taskName);
+            }
+            catch (ArgumentException)
+            {
+                // The task didn't exist to delete
+                return false;
+            }
+
+            return tasks[aClass].Remove(t);
         }
 
-        public bool UpdateReminder(Reminder reminder, string taskName = "", DateTime date = default)
+        public bool CreateReminder(string aClass, string taskName, DateTime time)
         {
-            // only update reminder with a given val if it is not equal to the defined default value
-            // need to look up the task with the given taskName, if one is given
-            //if reminders contains reminder
-            if (reminders.Contains(reminder))
+            // If the class doesn't exist, return false
+            if (!tasks.ContainsKey(aClass))
             {
-                if (!(reminder.GetTask().GetName().Equals("") && date == default))
+                return false;
+            }
+
+            try
+            {
+                FindTask(aClass, taskName);
+            } catch (ArgumentException)
+            {
+                // Task doesn't exist
+                return false;
+            }
+
+            foreach (var r in reminders)
+            {
+                if (r.GetClassName() == aClass && r.GetTaskName() == taskName)
                 {
-                    reminders.Add(new Reminder(new Task(taskName, reminder.GetTask().GetPriority(), reminder.GetTask().GetDate()), date));
-                    reminders.Remove(reminder);
-                    return true;
-                } else {
+                    // The task already has a reminder
                     return false;
                 }
             }
-            // else
-            else {
-                //return false
-                return false;
-            }
+
+            reminders.Add(new Reminder(aClass, taskName, time));
+            return true;
         }
 
-        public bool DeleteReminder(Reminder reminder)
+        public bool UpdateReminder(string className, string taskName, DateTime date)
         {
-            if (reminders.Contains(reminder))
+            foreach (var r in reminders)
             {
-                reminders.Remove(reminder);
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        public bool CompleteTask(string aClass, Task task)
-        {
-            List<Task> list;
-            if (tasks.TryGetValue(aClass, out list))
-            {
-                if (list.Contains(task))
+                if (r.GetClassName() == className && r.GetTaskName() == taskName)
                 {
-                    // Remove any reminders related to the task
-                    foreach (Reminder r in reminders)
-                    {
-                        if (r.GetTask() == task)
-                        {
-                            reminders.Remove(r);
-                        }
-                    }
-
-                    //update class's tasklist
-                    tasks.Remove(aClass, out list);
-                    list.Remove(task);
-                    tasks.Add(aClass, list);
-
-                    completedTasks.Add(task);
-
+                    // This is our reminder!
+                    r.SetTime(date);
                     return true;
                 }
-                // Can't complete a task that doesn't exist
+            }
+
+            // Reminder didn't exist to update
+            return false;
+        }
+
+        public bool DeleteReminder(string className, string taskName)
+        {
+            foreach (var r in reminders)
+            {
+                if (r.GetClassName() == className && r.GetTaskName() == taskName)
+                {
+                    // This is our reminder!
+                    reminders.Remove(r);
+                    return true;
+                }
+            }
+
+            // Reminder didn't exist to remove
+            return false;
+        }
+
+        public bool CompleteTask(string aClass, string taskName)
+        {
+            // If the class doesn't exist, return false
+            if (!tasks.ContainsKey(aClass))
+            {
                 return false;
             }
-            // Can't complete a task in a class that doesn't exist
-            return false;
+
+            // Check that the task exists
+            Task t;
+            try
+            {
+                t = FindTask(aClass, taskName);
+            } catch (ArgumentException)
+            {
+                // Task doesn't exist to complete
+                return false;
+            }
+
+            // Remove any related reminders
+            foreach (Reminder r in reminders)
+            {
+                if (r.GetClassName() == aClass && r.GetTaskName() == taskName)
+                {
+                    reminders.Remove(r);
+                }
+            }
+
+            // Add task to completed tasks, remove from task list
+            completedTasks.Add(t);
+            tasks[aClass].Remove(t);
+            return true;
         }
 
         public (List<Task>, List<Reminder>) SummaryData(bool sortPriority = true, string sortClassName = "")
@@ -265,9 +295,12 @@ namespace TaskTrackingCalendar
             {
                 foreach (Reminder r in reminders)
                 {
-                    if (taskList.Contains(r.GetTask()))
+                    foreach (Task t in taskList)
                     {
-                        reminderList.Add(r);
+                        if (t.GetName() == r.GetTaskName())
+                        {
+                            reminderList.Add(r);
+                        }
                     }
                 }
             }
@@ -354,7 +387,7 @@ namespace TaskTrackingCalendar
             }
             foreach (Reminder rem in reminders)
             {
-                data.Add("REMINDER " + rem.GetTask().GetName() + " " + rem.GetTime().ToString());
+                data.Add("REMINDER " + rem.GetClassName() + " " + rem.GetTaskName() + " " + rem.GetTime().ToString());
             }
 
             // Write data to file
@@ -408,14 +441,10 @@ namespace TaskTrackingCalendar
                         if (tasks.TryGetValue(arr[1], out list))
                         {
                             list.Add(new Task(arr[2], int.Parse(arr[3]), DateTime.Parse(arr[4])));
-                        } else
-                        {
-                            // ooh it dont work right
                         }
                         break;
                     case "REMINDER":
-                        Task t = findTask(arr[1]);
-                        reminders.Add(new Reminder(t, DateTime.Parse(arr[2])));
+                        reminders.Add(new Reminder(arr[1], arr[2], DateTime.Parse(arr[3])));
                         break;
                     default:
                         break;

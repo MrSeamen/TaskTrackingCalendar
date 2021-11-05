@@ -48,5 +48,13 @@ namespace TaskTrackingCalendar
         {
             this.date = date;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Task task &&
+                   name == task.name &&
+                   priority == task.priority &&
+                   date == task.date;
+        }
     }
 }

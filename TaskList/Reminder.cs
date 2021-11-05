@@ -8,23 +8,35 @@ namespace TaskTrackingCalendar
 {
     public class Reminder
     {
-        private Task task;
+        private string className;
+        private string taskName;
         private DateTime time;
 
-        public Reminder(Task task, DateTime time)
+        public Reminder(string className, string taskName, DateTime time)
         {
-            this.task = task;
+            this.className = className;
+            this.taskName = taskName;
             this.time = time;
         }
 
-        public Task GetTask()
+        public string GetClassName()
         {
-            return task;
+            return className;
         }
 
-        public void SetTask(Task task)
+        public void SetClassName(string className)
         {
-            this.task = task;
+            this.className = className;
+        }
+
+        public string GetTaskName()
+        {
+            return taskName;
+        }
+
+        public void SetTaskName(string taskName)
+        {
+            this.taskName = taskName;
         }
 
         public DateTime GetTime()

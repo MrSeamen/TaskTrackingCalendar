@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskTrackingCalendar"
         mc:Ignorable="d"
-        Title="CalendarPage" Height="450" Width="800">
+        Title="CalendarPage" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Closing="OnClose">
     <Grid>
-        
+        <Button Margin="5" Padding="5" Click="OnOpenSummary" Height="50" Width="100">
+            <TextBlock Text="Open Summary Page" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
     </Grid>
 </Window>

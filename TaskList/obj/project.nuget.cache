@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "0L+vJ/OSlEBH8czNjevaV89Y8nIjp3A2jKmovTn9xoDX5g22yGwx2loyMVtAJgiaDPrelKpSHW8EGCNGssmmzg==",
+  "dgSpecHash": "lk+W3PbIRr52my7WOMiXZlb6MeD/yy1UOc8/uJcJV1nwTU6YL5X5i4h2ZyDFyKb/Sfsmsln4PeeXR5tDglvxxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskList\\TaskList.csproj",
+  "projectFilePath": "C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\TaskList.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\vbess\\source\\repos\\TaskTrackingCalendar\\TaskList\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
