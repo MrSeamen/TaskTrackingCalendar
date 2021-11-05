@@ -22,3 +22,8 @@ C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\
 C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\TaskTrackingCalendar.pdb
 C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\TaskTrackingCalendar.genruntimeconfig.cache
 C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\TaskTrackingCalendar.csproj.AssemblyReference.cache
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\bin\Debug\net5.0-windows\TaskList.dll
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\bin\Debug\net5.0-windows\TaskList.pdb
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\SecretMainWindow.g.cs
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\SecretMainWindow.baml
+C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\TaskTrackingCalendar.csproj.CopyComplete
