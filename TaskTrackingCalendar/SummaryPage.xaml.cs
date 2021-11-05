@@ -79,6 +79,16 @@ namespace TaskTrackingCalendar
 
         }
 
+        private void OnSaveData(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnLoadData(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void OnOpenCalendar(object sender, RoutedEventArgs e)
         {
             mw.OpenCalendarPage(list);
