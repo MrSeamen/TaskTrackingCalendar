@@ -10,4 +10,11 @@
     <ProjectReference Include="..\TaskList\TaskList.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="CreateClassPopup - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CreateClassPopup.xaml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

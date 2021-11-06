@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\App.xaml
-3-1718821721
+61997257557
 
-5-1741378622
+8-1861957413
 194-351477160
-CalendarPage.xaml;SecretMainWindow.xaml;SummaryPage.xaml;
+CalendarPage.xaml;CreateClassPopup.xaml;DeleteClassPopup.xaml;EditClassPopup.xaml;SecretMainWindow.xaml;SummaryPage.xaml;
 
 False
 

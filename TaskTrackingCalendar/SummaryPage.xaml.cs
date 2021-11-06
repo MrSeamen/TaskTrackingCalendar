@@ -36,17 +36,23 @@ namespace TaskTrackingCalendar
 
         private void OnCreateClass(object sender, RoutedEventArgs e)
         {
-
+            var win = new CreateClassPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         private void OnEditClass(object sender, RoutedEventArgs e)
         {
-
+            var win = new EditClassPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         private void OnDeleteClass(object sender, RoutedEventArgs e)
         {
-
+            var win = new DeleteClassPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         private void OnCreateTask(object sender, RoutedEventArgs e)

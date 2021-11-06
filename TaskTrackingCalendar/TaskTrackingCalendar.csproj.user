@@ -10,6 +10,15 @@
     <Compile Update="CalendarPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CreateClassPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DeleteClassPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditClassPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="SecretMainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +28,15 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="CalendarPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CreateClassPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DeleteClassPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditClassPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SecretMainWindow.xaml">

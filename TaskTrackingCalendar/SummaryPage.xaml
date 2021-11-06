@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskTrackingCalendar"
         mc:Ignorable="d"
-        Title="SummaryPage" Height="450" Width="800"
+        Title="SummaryPage" Height="500" Width="800"
         WindowStartupLocation="CenterScreen"
         Closing="OnClose">
     <Grid>
@@ -14,9 +14,9 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" Margin="10">
+        <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Bottom">
             <TextBlock Text="Tasks:" FontSize="18" FontWeight="Bold"/>
-            <ListView ItemsSource="{Binding TaskDataSource}" Height="390">
+            <ListView ItemsSource="{Binding TaskDataSource}" Height="415">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="5">
@@ -32,7 +32,7 @@
             </ListView>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0,10,0,10" VerticalAlignment="Bottom">
-            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right" Height="140">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right" Height="80">
                 <Button Click="OnSaveData" Width="75" Padding="5">
                     <TextBlock Text="Save Data" TextWrapping="Wrap" TextAlignment="Center"/>
                 </Button>
@@ -42,7 +42,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
                 <TextBlock Text="Reminders:" FontSize="18" FontWeight="Bold"/>
-                <ListView ItemsSource="{Binding ReminderDataSource}" Height="250">
+                <ListView ItemsSource="{Binding ReminderDataSource}" Height="300">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="5">

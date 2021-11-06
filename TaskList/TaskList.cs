@@ -98,7 +98,7 @@ namespace TaskTrackingCalendar
             } catch (ArgumentException)
             {
                 // Go ahead and create the task
-                tasks[aClass].Add(new Task(name, priority, date));
+                tasks[aClass].Add(new Task(name, aClass, priority, date));
                 return true;
             }
         }
@@ -258,6 +258,102 @@ namespace TaskTrackingCalendar
             return true;
         }
 
+        public List<Task> GetSummaryTasks(bool sortPriority = true, string sortClassName = "")
+        {
+            // Get relevant tasks
+            var list = new List<Task>();
+            if (sortClassName != "")
+            {
+                tasks.TryGetValue(sortClassName, out list);
+            } else
+            {
+                foreach (var l in tasks.Values)
+                {
+                    list.Concat(l);
+                }
+            }
+            
+            // Sort
+            if (sortPriority)
+            {
+                // By priority
+                list = SummaryPrioritySort(list);
+            } else
+            {
+                // By due date
+                list = SummaryDueDateSort(list);
+            }
+
+            return list;
+        }
+
+        private List<Task> SummaryPrioritySort(List<Task> list)
+        {
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                for (int j = 0; j < list.Count - i - 1; j++)
+                {
+                    if (list[j].GetPriority() > list[j + 1].GetPriority())
+                    {
+                        var temp = list[j];
+                        list[j] = list[j + 1];
+                        list[j + 1] = temp;
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        private List<Task> SummaryDueDateSort(List<Task> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                for (int j = 0; j < list.Count; j++)
+                {
+                    if (list[j].GetDate() > list[j + 1].GetDate())
+                    {
+                        var temp = list[j];
+                        list[j] = list[j + 1];
+                        list[j + 1] = temp;
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        public List<string> GetSummaryClasses()
+        {
+            var classes = new List<string>();
+            foreach (var k in tasks.Keys)
+            {
+                classes.Add(k);
+            }
+            return classes;
+        }
+
+        public List<Reminder> GetSummaryReminders(string sortClassName = "")
+        {
+            if (sortClassName != "")
+            {
+                // Every reminder
+                return reminders;
+            } else
+            {
+                // Only reminders in that class
+                var rem = reminders;
+                foreach (var r in rem)
+                {
+                    if (r.GetClassName() != sortClassName)
+                    {
+                        rem.Remove(r);
+                    }
+                }
+                return rem;
+            }
+        }
+
         public (List<Task>, List<Reminder>) SummaryData(bool sortPriority = true, string sortClassName = "")
         {
             List<Task> taskList = new List<Task>();
@@ -322,8 +418,8 @@ namespace TaskTrackingCalendar
                         maxPosition = j;
                     }
                 }
-                Task current = new Task(workingList[i].GetName(), workingList[i].GetPriority(), workingList[i].GetDate());
-                Task destinationTask = new Task(workingList[maxPosition].GetName(), workingList[maxPosition].GetPriority(), workingList[maxPosition].GetDate());
+                Task current = new Task(workingList[i].GetName(), workingList[i].GetClassName(), workingList[i].GetPriority(), workingList[i].GetDate());
+                Task destinationTask = new Task(workingList[maxPosition].GetName(), workingList[maxPosition].GetClassName(), workingList[maxPosition].GetPriority(), workingList[maxPosition].GetDate());
                 workingList[maxPosition] = current;
                 workingList[i] = destinationTask;
             }
@@ -377,7 +473,7 @@ namespace TaskTrackingCalendar
                 {
                     foreach (Task task in list)
                     {
-                        data.Add("TASK " + key + " " + task.GetName() + " " + task.GetPriority() + " " + task.GetDate().ToString());
+                        data.Add("TASK " + key + " " + task.GetName() + " " + task.GetClassName() + " " + task.GetPriority() + " " + task.GetDate().ToString());
                     }
                 } else
                 {
@@ -440,7 +536,7 @@ namespace TaskTrackingCalendar
                         List<Task> list;
                         if (tasks.TryGetValue(arr[1], out list))
                         {
-                            list.Add(new Task(arr[2], int.Parse(arr[3]), DateTime.Parse(arr[4])));
+                            list.Add(new Task(arr[2], arr[3], int.Parse(arr[4]), DateTime.Parse(arr[5])));
                         }
                         break;
                     case "REMINDER":

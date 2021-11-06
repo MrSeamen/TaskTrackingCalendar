@@ -342,7 +342,7 @@ namespace TaskTrackingCalendar.Tests
             taskList.CreateReminder("ClassB", "Project", taskList.findTask("Project").GetDate());
             taskList.CreateReminder("ClassB", "Exam", taskList.findTask("Exam").GetDate());
 
-            List<Task> tasks = new List<Task>() { new Task("HW1", 2, default), new Task("HW2", 1, default) };
+            List<Task> tasks = new List<Task>() { new Task("HW1", "ClassA", 2, default), new Task("HW2", "ClassA", 1, default) };
             List<Reminder> reminders = new List<Reminder>();
 
             // Act

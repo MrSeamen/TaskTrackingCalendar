@@ -9,12 +9,14 @@ namespace TaskTrackingCalendar
     public class Task
     {
         private string name { get; set; }
+        private string className { get; set; }
         private int priority { get; set; }
         private DateTime date { get; set; }
 
-        public Task(string name, int priority, DateTime date)
+        public Task(string name, string className, int priority, DateTime date)
         {
             this.name = name;
+            this.className = className;
             this.priority = priority;
             this.date = date.Date;
         }
@@ -27,6 +29,16 @@ namespace TaskTrackingCalendar
         public void SetName(string name)
         {
             this.name = name;
+        }
+
+        public string GetClassName()
+        {
+            return className;
+        }
+
+        public void SetClassName(string className)
+        {
+            this.className = className;
         }
 
         public int GetPriority()
