@@ -10,13 +10,31 @@
     <Compile Update="CalendarPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CreateClassPopup.xaml.cs">
+    <Compile Update="SummaryPagePopups\CreateClassPopup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="DeleteClassPopup.xaml.cs">
+    <Compile Update="SummaryPagePopups\CreateReminderPopup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EditClassPopup.xaml.cs">
+    <Compile Update="SummaryPagePopups\CreateTaskPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SummaryPagePopups\DeleteClassPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SummaryPagePopups\DeleteReminderPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SummaryPagePopups\DeleteTaskPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SummaryPagePopups\EditClassPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SummaryPagePopups\EditReminderPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SummaryPagePopups\EditTaskPopup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SecretMainWindow.xaml.cs">
@@ -25,24 +43,54 @@
     <Compile Update="SummaryPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="SummaryPagePopups\LoadDataPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SummaryPagePopups\SaveDataPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="CalendarPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="CreateClassPopup.xaml">
+    <Page Update="SummaryPagePopups\CreateClassPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="DeleteClassPopup.xaml">
+    <Page Update="SummaryPagePopups\CreateReminderPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="EditClassPopup.xaml">
+    <Page Update="SummaryPagePopups\CreateTaskPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SummaryPagePopups\DeleteClassPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SummaryPagePopups\DeleteReminderPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SummaryPagePopups\DeleteTaskPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SummaryPagePopups\EditClassPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SummaryPagePopups\EditReminderPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SummaryPagePopups\EditTaskPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SecretMainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SummaryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SummaryPagePopups\LoadDataPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SummaryPagePopups\SaveDataPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

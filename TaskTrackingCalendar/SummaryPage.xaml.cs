@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskTrackingCalendar.SummaryPagePopups;
 
 namespace TaskTrackingCalendar
 {
@@ -57,41 +58,59 @@ namespace TaskTrackingCalendar
 
         private void OnCreateTask(object sender, RoutedEventArgs e)
         {
-
+            var win = new CreateTaskPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         private void OnEditTask(object sender, RoutedEventArgs e)
         {
-
+            var win = new EditTaskPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         private void OnDeleteTask(object sender, RoutedEventArgs e)
         {
-
+            var win = new DeleteTaskPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         private void OnCreateReminder(object sender, RoutedEventArgs e)
         {
-
+            var win = new CreateReminderPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         private void OnEditReminder(object sender, RoutedEventArgs e)
         {
-
+            var win = new EditReminderPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         private void OnDeleteReminder(object sender, RoutedEventArgs e)
         {
-
+            var win = new DeleteReminderPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         private void OnSaveData(object sender, RoutedEventArgs e)
         {
+            var win = new SaveDataPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
 
         }
 
         private void OnLoadData(object sender, RoutedEventArgs e)
         {
+            var win = new LoadDataPopup(list);
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
 
         }
 

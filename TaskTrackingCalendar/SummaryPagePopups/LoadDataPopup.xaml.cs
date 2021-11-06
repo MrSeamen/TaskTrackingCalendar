@@ -12,32 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TaskTrackingCalendar
+namespace TaskTrackingCalendar.SummaryPagePopups
 {
     /// <summary>
-    /// Interaction logic for CreateClassPopup.xaml
+    /// Interaction logic for LoadDataPopup.xaml
     /// </summary>
-    public partial class CreateClassPopup : Window
+    public partial class LoadDataPopup : Window
     {
         TaskList list;
 
-        public CreateClassPopup(TaskList list)
+        public LoadDataPopup(TaskList list)
         {
             this.list = list;
             InitializeComponent();
-        }
-
-        private void OnSubmit(object sender, RoutedEventArgs e)
-        {
-            var name = NameTextBox.Text;
-            if (list.CreateClass(name))
-            {
-                Close();
-            }
-            else
-            {
-                ErrorTextBox.Text = "Invalid Class Name ";
-            }
         }
     }
 }

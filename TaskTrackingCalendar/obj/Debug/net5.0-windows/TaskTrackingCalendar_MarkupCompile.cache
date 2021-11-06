@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\vbess\source\repos\TaskTrackingCalendar\TaskTrackingCalendar\App.xaml
-61997257557
+141635649053
 
-8-1861957413
+161556186448
 194-351477160
-CalendarPage.xaml;CreateClassPopup.xaml;DeleteClassPopup.xaml;EditClassPopup.xaml;SecretMainWindow.xaml;SummaryPage.xaml;
+CalendarPage.xaml;SecretMainWindow.xaml;SummaryPage.xaml;SummaryPagePopups\CreateClassPopup.xaml;SummaryPagePopups\CreateReminderPopup.xaml;SummaryPagePopups\CreateTaskPopup.xaml;SummaryPagePopups\DeleteClassPopup.xaml;SummaryPagePopups\DeleteReminderPopup.xaml;SummaryPagePopups\DeleteTaskPopup.xaml;SummaryPagePopups\EditClassPopup.xaml;SummaryPagePopups\EditReminderPopup.xaml;SummaryPagePopups\EditTaskPopup.xaml;SummaryPagePopups\LoadDataPopup.xaml;SummaryPagePopups\SaveDataPopup.xaml;
 
 False
 
