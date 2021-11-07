@@ -5,9 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskTrackingCalendar.SummaryPagePopups"
         mc:Ignorable="d"
-        Title="EditReminderPopup" Height="450" Width="300"
+        Title="EditReminderPopup" Height="300" Width="300"
         WindowStartupLocation="CenterOwner">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="68">
+            <TextBlock Text="Class:" Margin="5"/>
+            <ComboBox Name="ClassComboBox" SelectionChanged="ClassComboBox_SelectionChanged"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Height="25" Width="62">
+            <TextBlock Text="Task:" Margin="5"/>
+            <ComboBox Name="TaskComboBox"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Height="26" Width="188">
+            <TextBlock Text="New due date:" Padding="5"/>
+            <DatePicker Name="DatePicker"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Margin="10">
+            <TextBlock Name="ErrorTextBox" Padding="5" />
+            <Button Width="75" Height="30" Click="OnSubmit">
+                <TextBlock Text="Submit"/>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>

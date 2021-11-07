@@ -9,26 +9,26 @@
         WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="68">
             <TextBlock Text="Class:" Margin="5"/>
             <ComboBox Name="ClassComboBox" SelectionChanged="ClassComboBox_SelectionChanged"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Height="25" Width="62">
             <TextBlock Text="Task:" Margin="5"/>
             <ComboBox Name="TaskComboBox" SelectionChanged="TaskComboBox_SelectionChanged"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Height="18" Width="162">
             <TextBlock Text="New name: "/>
             <TextBox Name="NewTaskName" Width="100"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Height="22" Width="106">
             <TextBlock Text="New priority: "/>
             <ComboBox Name="PriorityComboBox">
                 <ComboBoxItem Content="1" IsSelected="True"/>
@@ -38,7 +38,7 @@
                 <ComboBoxItem Content="5"/>
             </ComboBox>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Height="26" Width="188">
             <TextBlock Text="New due date:" Padding="5"/>
             <DatePicker Name="DatePicker"/>
         </StackPanel>
@@ -47,6 +47,6 @@
             <Button Width="75" Height="30" Click="OnSubmit">
                 <TextBlock Text="Submit"/>
             </Button>
-        </StackPanel>        
+        </StackPanel>
     </Grid>
 </Window>

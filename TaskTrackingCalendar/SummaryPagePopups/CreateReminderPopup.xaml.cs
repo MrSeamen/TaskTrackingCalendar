@@ -24,6 +24,50 @@ namespace TaskTrackingCalendar.SummaryPagePopups
         {
             this.list = list;
             InitializeComponent();
+
+            foreach (var c in list.GetSummaryClasses())
+            {
+                ClassComboBox.Items.Add(c);
+            }
+            ClassComboBox.SelectedIndex = 0;
+        }
+
+        private void ClassComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TaskComboBox.Items.Clear();
+
+            var tasks = new List<Task>();
+            if (!(ClassComboBox.SelectedItem == null))
+            {
+                string name = (string)ClassComboBox.SelectedItem;
+                tasks = list.GetSummaryTasks(true, name);
+            }
+
+            foreach (var t in tasks)
+            {
+                TaskComboBox.Items.Add(t.GetName());
+            }
+            TaskComboBox.SelectedIndex = 0;
+        }
+
+        private void OnSubmit(object sender, RoutedEventArgs e)
+        {
+            if (ClassComboBox.SelectedItem == null || TaskComboBox.SelectedItem == null  || DatePicker.SelectedDate == null)
+            {
+                ErrorTextBox.Text = "Invalid data ";
+            }
+
+            var className = (string)ClassComboBox.SelectedItem;
+            var taskName = (string)TaskComboBox.SelectedItem;
+            var date = (DateTime)DatePicker.SelectedDate;
+            if (list.CreateReminder(className, taskName, date))
+            {
+                Close();
+            }
+            else
+            {
+                ErrorTextBox.Text = "Invalid data ";
+            }
         }
     }
 }
