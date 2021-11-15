@@ -52,29 +52,31 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <!---Month day-->
                 <StackPanel Grid.Row="0" Grid.Column="0" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-                    
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="Sunday" FontSize="12" FontWeight="Bold" Margin="10"/>
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="Monday" FontSize="12" FontWeight="Bold" Margin="10"/>
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="2" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="Tuesday" FontSize="12" FontWeight="Bold" Margin="10"/>
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="3" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="Wednesday" FontSize="12" FontWeight="Bold" Margin="10"/>
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="4" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="Thursday" FontSize="12" FontWeight="Bold" Margin="10"/>
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="5" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="Friday" FontSize="12" FontWeight="Bold" Margin="10"/>
                 </StackPanel>
                 <StackPanel Grid.Row="0" Grid.Column="6" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="Saturday" FontSize="12" FontWeight="Bold" Margin="10"/>
                 </StackPanel>
+                <!---Tasks for each date -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
 
                 </StackPanel>
@@ -157,6 +159,27 @@
 
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="6" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="0" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="2" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="3" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="4" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="5" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                </StackPanel>
+                <StackPanel Grid.Row="5" Grid.Column="6" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
 
                 </StackPanel>
             </Grid>

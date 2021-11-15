@@ -19,7 +19,7 @@ namespace TaskTrackingCalendar
     /// </summary>
     public partial class CalendarPage : Window
     {
-        TaskList list;
+        TaskList list; //full task list
         SecretMainWindow mw;
         int currentYear; //can be changed
         int currentMonth; //can be changed
@@ -68,7 +68,7 @@ namespace TaskTrackingCalendar
             }
         }
 
-        public String monthName(int month)
+        private String monthName(int month)
         {
             String monthName = "";
             switch(month)
