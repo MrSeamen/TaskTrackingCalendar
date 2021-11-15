@@ -24,7 +24,7 @@
                 <TextBlock Text="Last Month" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button> 
             <!---Month Name-->
-            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding currentMonthName}" FontSize="18" FontWeight="Bold" Margin="10"/>
+            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding Path=currentMonthName}" FontSize="18" FontWeight="Bold" Margin="10"/>
             <Button Margin="10" Padding="5" Click="forwardMonth" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <TextBlock Text="Next Month" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button>

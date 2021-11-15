@@ -21,16 +21,51 @@ namespace TaskTrackingCalendar
     {
         TaskList list;
         SecretMainWindow mw;
-        List<int> monthList = new List<int>();
-        int currentMonth;
+        int currentYear; //can be changed
+        int currentMonth; //can be changed
+        int currentDay; //cannot be changed
+        int maxDays;
+        int startDayofWeek;
         String currentMonthName;
+        List<Task>[] monthTaskList = new List<Task>[31];
+        DateTime now;
         
 
         public CalendarPage(TaskList newList, SecretMainWindow parent)
         {
             list = newList;
             mw = parent;
+            now = DateTime.Now;
+            currentYear = now.Year;
+            currentMonth = now.Month;
+            currentDay = now.Day;
+            currentMonthName = monthName(currentMonth);
+            maxDays = DateTime.DaysInMonth(currentMonth, currentYear);
+            startDayofWeek = firstDayOfMonth(currentMonth, currentYear);
+            updateTaskList(list);
             InitializeComponent();
+        }
+
+        private int firstDayOfMonth(int month, int year)
+        {
+            return (int)new DateTime(year, month, 1, 0, 0, 0).DayOfWeek;
+        }
+
+        private void updateTaskList(TaskList taskList)
+        {
+            //clear monthTaskList
+            for (int i = 0; i < monthTaskList.Length; i++)
+            {
+                monthTaskList[i].Clear();
+            }
+            //get tasks for this month
+            foreach (Task task in taskList.GetSummaryTasks())
+            {
+                if (task.GetDate().Month == currentMonth)
+                {
+                    monthTaskList[task.GetDate().Day].Add(task);
+                }
+            }
         }
 
         public String monthName(int month)
@@ -75,30 +110,49 @@ namespace TaskTrackingCalendar
 
         private void forwardMonth(object sender, RoutedEventArgs e)
         {
+            //update current year, current month, monthTaskLists, startDay, and maxDays
             if (currentMonth == 12)
             {
                 currentMonth = 1;
+                currentYear++;
             } else
             {
                 currentMonth++;
             }
+            
             currentMonthName = monthName(currentMonth);
+            maxDays = DateTime.DaysInMonth(currentMonth, currentYear);
+            startDayofWeek = firstDayOfMonth(currentMonth, currentYear);
+            updateTaskList(list);
             //update calendar display
         }
 
         private void backwardMonth(object sender, RoutedEventArgs e)
         {
+            //update current year, current month, monthTaskLists, startDay, and maxDays
             if (currentMonth == 1)
             {
-                currentMonth = 12;                
+                currentMonth = 12;
+                currentYear--;
             }
             else
             {
                 currentMonth--;
             }
+
             currentMonthName = monthName(currentMonth);
+            maxDays = DateTime.DaysInMonth(currentMonth, currentYear);
+            startDayofWeek = firstDayOfMonth(currentMonth, currentYear);
+            updateTaskList(list);
             //update calendar display
         }
+
+        //get individual tasks for the day
+        private List<Task> tasksOfDay(int day)
+        {
+            return monthTaskList[day];
+        }
+
 
         private void OnClose(object sender, System.ComponentModel.CancelEventArgs e)
         {
