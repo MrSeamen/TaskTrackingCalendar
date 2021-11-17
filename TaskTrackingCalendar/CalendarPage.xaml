@@ -25,9 +25,9 @@
                 <TextBlock Text="Last Month" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button>
             <!---Month Name-->
-            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding currentMonthName, UpdateSourceTrigger=PropertyChanged}" FontSize="18" FontWeight="Bold" Margin="10"/>
+            <TextBlock Name="Month" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="18" FontWeight="Bold" Margin="10"/>
             <!---Year -->
-            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding currentYear, UpdateSourceTrigger=PropertyChanged}" FontSize="18" FontWeight="Bold" Margin="10"/>
+            <TextBlock Name="Year" VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding currentYear, UpdateSourceTrigger=PropertyChanged}" FontSize="18" FontWeight="Bold" Margin="10"/>
             <Button Margin="10" Padding="5" Click="forwardMonth" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <TextBlock Text="Next Month" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button>
@@ -90,114 +90,626 @@
                     <ListView Name ="Day0TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding tasksList}" FontSize="10" Margin="5"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">  
-
+                <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day1" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day1TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="2" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day2" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day2TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="3" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day3" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day3TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="4" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day4" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day4TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="5" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day5" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day5TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="6" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day6" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day6TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="0" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day7" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day7TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day8" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day8TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="2" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day9" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day9TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="3" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day10" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day10TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="4" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day11" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day11TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="5" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day12" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day12TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Grid.Column="6" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day13" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day13TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="0" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day14" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day14TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day15" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day15TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="2" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day16" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day16TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="3" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day17" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day17TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="4" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day18" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day18TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="5" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day19" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day19TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Grid.Column="6" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day20" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day20TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="0" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day21" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day21TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day22" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day22TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="2" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day23" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day23TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="3" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day24" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day24TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="4" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day25" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day25TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="5" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day26" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day26TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="4" Grid.Column="6" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day27" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day27TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="5" Grid.Column="0" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day28" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day28TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="5" Grid.Column="1" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day29" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day29TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="5" Grid.Column="2" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day30" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day30TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="5" Grid.Column="3" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day31" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day31TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="5" Grid.Column="4" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day32" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day32TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="5" Grid.Column="5" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day33" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day33TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
                 <StackPanel Grid.Row="5" Grid.Column="6" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-
+                    <!-- date -->
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Name="Day34" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
+                    </StackPanel>
+                    <!-- tasks -->
+                    <ListView Name ="Day34TL">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
             </Grid>
         </StackPanel>

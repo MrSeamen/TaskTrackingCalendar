@@ -23,7 +23,6 @@ namespace TaskTrackingCalendar
 
         public class Calendar
         {
-            
             public int currentYear { get; set; } //can be changed for data
             public int currentMonth { get; set; } //can be changed for data
             public int currentDay { get; set; }
@@ -94,7 +93,7 @@ namespace TaskTrackingCalendar
                         month = currentMonth;
                         year = currentYear;
                         //handle date
-                        date = week * 7 + day - dayOffSet;
+                        date = week * 7 + day + 1 - dayOffSet;
                         //beginning of month
                         if (week == 0)
                         {
@@ -128,13 +127,13 @@ namespace TaskTrackingCalendar
 
                         if (monthTaskDays[week, day] == null)
                         {
-                            if (taskList[date] == null)
+                            if (taskList[date - 1] == null)
                             {
-                                monthTaskDays[week, day] = new CalendarDate(date + 1);
+                                monthTaskDays[week, day] = new CalendarDate(date);
                             }
                             else
                             {
-                                monthTaskDays[week, day] = new CalendarDate(date + 1, taskList[date]);
+                                monthTaskDays[week, day] = new CalendarDate(date, taskList[date - 1]);
                             }
                         }
                         else
@@ -225,6 +224,19 @@ namespace TaskTrackingCalendar
             }
         }
 
+        public class DateTask
+        {
+            public string AcademicClass { get; set; }
+            public string TaskName { get; set; }
+            public string Priority { get; set; }
+
+            public DateTask(string Priority, string AcademicClass, string TaskName)
+            {
+                this.Priority = Priority;
+                this.AcademicClass = AcademicClass;
+                this.TaskName = TaskName;
+            }
+        }
         public class CalendarDate
         {
             public string date { get; set; }
@@ -277,8 +289,7 @@ namespace TaskTrackingCalendar
             now = DateTime.Now;
             currentCalendar = new Calendar(now, list);
             DataContext = currentCalendar;
-            Day0.Text = currentCalendar.getCalendarDate(0, 0).getDate();
-            //Day00 = currentCalendar.getCalendarDate(0, 0).getTaskList();
+            refresh();
         }
         
         private void OnOpenSummary(object sender, RoutedEventArgs e)
@@ -293,7 +304,7 @@ namespace TaskTrackingCalendar
             //update current year, current month, monthTaskLists, startDay, and maxDays
             currentCalendar.changeMonth(1, list);
             //update calendar display
-            //DataContext = currentCalendar;
+            refresh();
         }
 
         private void backwardMonth(object sender, RoutedEventArgs e)
@@ -301,8 +312,99 @@ namespace TaskTrackingCalendar
             //update current year, current month, monthTaskLists, startDay, and maxDays
             currentCalendar.changeMonth(-1, list);
             //update calendar display
-            //DataContext = currentCalendar;
+            refresh();
         }
+
+        public void refresh()
+        {
+            //reset year/month
+            Month.Text = currentCalendar.currentMonthName;
+            Year.Text = currentCalendar.currentYear.ToString();
+            //reset all dates
+            Day0.Text = currentCalendar.getCalendarDate(0, 0).getDate();
+            Day1.Text = currentCalendar.getCalendarDate(0, 1).getDate();
+            Day2.Text = currentCalendar.getCalendarDate(0, 2).getDate();
+            Day3.Text = currentCalendar.getCalendarDate(0, 3).getDate();
+            Day4.Text = currentCalendar.getCalendarDate(0, 4).getDate();
+            Day5.Text = currentCalendar.getCalendarDate(0, 5).getDate();
+            Day6.Text = currentCalendar.getCalendarDate(0, 6).getDate();
+            Day7.Text = currentCalendar.getCalendarDate(1, 0).getDate();
+            Day8.Text = currentCalendar.getCalendarDate(1, 1).getDate();
+            Day9.Text = currentCalendar.getCalendarDate(1, 2).getDate();
+            Day10.Text = currentCalendar.getCalendarDate(1, 3).getDate();
+            Day11.Text = currentCalendar.getCalendarDate(1, 4).getDate();
+            Day12.Text = currentCalendar.getCalendarDate(1, 5).getDate();
+            Day13.Text = currentCalendar.getCalendarDate(1, 6).getDate();
+            Day14.Text = currentCalendar.getCalendarDate(2, 0).getDate();
+            Day15.Text = currentCalendar.getCalendarDate(2, 1).getDate();
+            Day16.Text = currentCalendar.getCalendarDate(2, 2).getDate();
+            Day17.Text = currentCalendar.getCalendarDate(2, 3).getDate();
+            Day18.Text = currentCalendar.getCalendarDate(2, 4).getDate();
+            Day19.Text = currentCalendar.getCalendarDate(2, 5).getDate();
+            Day20.Text = currentCalendar.getCalendarDate(2, 6).getDate();
+            Day21.Text = currentCalendar.getCalendarDate(3, 0).getDate();
+            Day22.Text = currentCalendar.getCalendarDate(3, 1).getDate();
+            Day23.Text = currentCalendar.getCalendarDate(3, 2).getDate();
+            Day24.Text = currentCalendar.getCalendarDate(3, 3).getDate();
+            Day25.Text = currentCalendar.getCalendarDate(3, 4).getDate();
+            Day26.Text = currentCalendar.getCalendarDate(3, 5).getDate();
+            Day27.Text = currentCalendar.getCalendarDate(3, 6).getDate();
+            Day28.Text = currentCalendar.getCalendarDate(4, 0).getDate();
+            Day29.Text = currentCalendar.getCalendarDate(4, 1).getDate();
+            Day30.Text = currentCalendar.getCalendarDate(4, 2).getDate();
+            Day31.Text = currentCalendar.getCalendarDate(4, 3).getDate();
+            Day32.Text = currentCalendar.getCalendarDate(4, 4).getDate();
+            Day33.Text = currentCalendar.getCalendarDate(4, 5).getDate();
+            Day34.Text = currentCalendar.getCalendarDate(4, 6).getDate();
+            //refer to tasklists for new data, reassign itemssource for each date to new list
+            Day0TL.ItemsSource = getDateList(0, 0);
+            Day1TL.ItemsSource = getDateList(0, 1);
+            Day2TL.ItemsSource = getDateList(0, 2);
+            Day3TL.ItemsSource = getDateList(0, 3);
+            Day4TL.ItemsSource = getDateList(0, 4);
+            Day5TL.ItemsSource = getDateList(0, 5);
+            Day6TL.ItemsSource = getDateList(0, 6);
+            Day7TL.ItemsSource = getDateList(1, 0);
+            Day8TL.ItemsSource = getDateList(1, 1);
+            Day9TL.ItemsSource = getDateList(1, 2);
+            Day10TL.ItemsSource = getDateList(1, 3);
+            Day11TL.ItemsSource = getDateList(1, 4);
+            Day12TL.ItemsSource = getDateList(1, 5);
+            Day13TL.ItemsSource = getDateList(1, 6);
+            Day14TL.ItemsSource = getDateList(2, 0);
+            Day15TL.ItemsSource = getDateList(2, 1);
+            Day16TL.ItemsSource = getDateList(2, 2);
+            Day17TL.ItemsSource = getDateList(2, 3);
+            Day18TL.ItemsSource = getDateList(2, 4);
+            Day19TL.ItemsSource = getDateList(2, 5);
+            Day20TL.ItemsSource = getDateList(2, 6);
+            Day21TL.ItemsSource = getDateList(3, 0);
+            Day22TL.ItemsSource = getDateList(3, 1);
+            Day23TL.ItemsSource = getDateList(3, 2);
+            Day24TL.ItemsSource = getDateList(3, 3);
+            Day25TL.ItemsSource = getDateList(3, 4);
+            Day26TL.ItemsSource = getDateList(3, 5);
+            Day27TL.ItemsSource = getDateList(3, 6);
+            Day28TL.ItemsSource = getDateList(4, 0);
+            Day29TL.ItemsSource = getDateList(4, 1);
+            Day30TL.ItemsSource = getDateList(4, 2);
+            Day31TL.ItemsSource = getDateList(4, 3);
+            Day32TL.ItemsSource = getDateList(4, 4);
+            Day33TL.ItemsSource = getDateList(4, 5);
+            Day34TL.ItemsSource = getDateList(4, 6);
+        }
+
+        public List<DateTask> getDateList(int week, int day)
+        {
+            List<DateTask> dateList = new List<DateTask>();
+            foreach (Task t in currentCalendar.getCalendarDate(0, 0).getTaskList())
+            {
+                dateList.Add(new DateTask(t.GetPriority().ToString(), t.GetClassName(), t.GetName()));
+            }
+            return dateList;
+        }
+
+
         private void OnClose(object sender, System.ComponentModel.CancelEventArgs e)
         {
             mw.Close();

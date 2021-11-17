@@ -135,10 +135,7 @@ namespace TaskTrackingCalendar {
             #line default
             #line hidden
             return;
-            case 5:
-            this.ReminderListView = ((System.Windows.Controls.ListView)(target));
-            return;
-            case 6:
+            case 4:
             
             #line 24 "..\..\..\SummaryPage.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.OnRefreshPage);
