@@ -86,7 +86,6 @@ namespace TaskTrackingCalendar
                 int date = 0;
                 for (int week = 0; week < monthTaskDays.GetLength(0); week++)
                 {
-
                     for (int day = 0; day < monthTaskDays.GetLength(1); day++)
                     {
                         month = currentMonth;
@@ -97,14 +96,15 @@ namespace TaskTrackingCalendar
                         if (week == 0)
                         {
                             int previousMonthMaxDays;
-                            --month;
                             if (month == 1)
                             {
                                 --year;
-                                previousMonthMaxDays = DateTime.DaysInMonth(year, 12);
+                                month = 12;
+                                previousMonthMaxDays = DateTime.DaysInMonth(year, month);
                             }
                             else
                             {
+                                --month;
                                 previousMonthMaxDays = DateTime.DaysInMonth(year, month);
                             }
                             if (day < dayOffSet)
@@ -122,7 +122,6 @@ namespace TaskTrackingCalendar
                                 ++month;
                             }
                         }
-                        Console.WriteLine("week" + week + " day" + day + " date" + date);
 
                         if (monthTaskDays[week, day] == null)
                         {
@@ -140,13 +139,13 @@ namespace TaskTrackingCalendar
                             if (month != currentMonth)
                             {
                                 monthTaskDays[week, day].clear();
-                                monthTaskDays[week, day].setDate(date + 1);
+                                monthTaskDays[week, day].setDate(date);
                             }
                             else
                             {
                                 monthTaskDays[week, day].clear();
-                                monthTaskDays[week, day].setDate(date + 1);
-                                monthTaskDays[week, day].addTaskList(taskList[date]);
+                                monthTaskDays[week, day].setDate(date);
+                                monthTaskDays[week, day].addTaskList(taskList[date-1]);
                             }
                         }
                     }
