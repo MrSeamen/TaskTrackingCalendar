@@ -85,8 +85,7 @@ namespace TaskTrackingCalendar.SummaryPagePopups {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TaskTrackingCalendar;V1.0.0.0;component/summarypagepopups/editreminderpopup.xaml" +
-                    "", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TaskTrackingCalendar;component/summarypagepopups/editreminderpopup.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\SummaryPagePopups\EditReminderPopup.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

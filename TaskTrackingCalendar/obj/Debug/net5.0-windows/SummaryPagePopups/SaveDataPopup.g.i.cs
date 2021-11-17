@@ -69,7 +69,7 @@ namespace TaskTrackingCalendar.SummaryPagePopups {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TaskTrackingCalendar;V1.0.0.0;component/summarypagepopups/savedatapopup.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TaskTrackingCalendar;component/summarypagepopups/savedatapopup.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\SummaryPagePopups\SaveDataPopup.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

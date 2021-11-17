@@ -53,7 +53,7 @@ namespace TaskTrackingCalendar {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TaskTrackingCalendar;V1.0.0.0;component/secretmainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TaskTrackingCalendar;component/secretmainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SecretMainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

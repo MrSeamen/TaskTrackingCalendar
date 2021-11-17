@@ -77,8 +77,7 @@ namespace TaskTrackingCalendar.SummaryPagePopups {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TaskTrackingCalendar;V1.0.0.0;component/summarypagepopups/deletereminderpopup.xa" +
-                    "ml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TaskTrackingCalendar;component/summarypagepopups/deletereminderpopup.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\SummaryPagePopups\DeleteReminderPopup.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
