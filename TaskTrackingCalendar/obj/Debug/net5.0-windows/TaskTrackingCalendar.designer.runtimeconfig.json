@@ -6,8 +6,8 @@
       "version": "5.0.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\srw33\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\srw33\\.nuget\\packages",
+      "C:\\Users\\vbess\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\vbess\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
