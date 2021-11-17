@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace TaskTrackingCalendar
 {
-    /// <summary>
-    /// Interaction logic for CalendarPage.xaml
-    /// </summary>
     public partial class CalendarPage : Window
     {
         TaskList list;
@@ -271,6 +268,7 @@ namespace TaskTrackingCalendar
             }
         }
 
+        /// Interaction logic for CalendarPage.xaml
         public CalendarPage(TaskList newList, SecretMainWindow parent)
         {
             InitializeComponent();
@@ -279,10 +277,8 @@ namespace TaskTrackingCalendar
             now = DateTime.Now;
             currentCalendar = new Calendar(now, list);
             DataContext = currentCalendar;
-            Day00 = currentCalendar.getCalendarDate(0, 0).getTaskList();
+            //Day00 = currentCalendar.getCalendarDate(0, 0).getTaskList();
         }
-
-
         
         private void OnOpenSummary(object sender, RoutedEventArgs e)
         {
