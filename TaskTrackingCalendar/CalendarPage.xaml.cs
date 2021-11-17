@@ -34,12 +34,7 @@ namespace TaskTrackingCalendar
             private int startDayofWeek; //updated with buttons
             public String currentMonthName { get; set; } //updated with buttons
             private List<Task>[] monthTaskList = new List<Task>[31];
-            private CalendarDate[,] monthTaskDays = new CalendarDate[5, 7];
-
-            public CalendarDate[,] getMonthTaskDays()
-            {
-                return monthTaskDays;
-            }
+            public CalendarDate[,] monthTaskDays = new CalendarDate[5, 7];
 
             public Calendar(DateTime time, TaskList list)
             {
@@ -52,6 +47,12 @@ namespace TaskTrackingCalendar
                 updateTaskList(list);
                 updateMonthDays(monthTaskList, startDayofWeek);
             }
+
+            public CalendarDate getCalendarDate(int week, int day)
+            {
+                return monthTaskDays[week, day];
+            }
+            
             public int firstDayOfMonth(int month, int year)
             {
                 return (int)new DateTime(year, month, 1, 0, 0, 0).DayOfWeek;
@@ -278,6 +279,7 @@ namespace TaskTrackingCalendar
             now = DateTime.Now;
             currentCalendar = new Calendar(now, list);
             DataContext = currentCalendar;
+            Day00 = currentCalendar.getCalendarDate(0, 0).getTaskList();
         }
 
 
@@ -308,5 +310,7 @@ namespace TaskTrackingCalendar
         {
             mw.Close();
         }
+        
     }
+
 }
