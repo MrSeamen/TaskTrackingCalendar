@@ -26,5 +26,43 @@ namespace TaskTrackingCalendar.SummaryPagePopups
             this.list = list;
             InitializeComponent();
         }
+
+        private void OnBrowse(object sender, RoutedEventArgs e)
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog();
+
+            bool? result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                FilePathTextBox.Text = filename;
+            }
+        }
+
+        private void OnSubmit(object sender, RoutedEventArgs e)
+        {
+            var filePath = FilePathTextBox.Text;
+            if (list.SaveData(filePath))
+            {
+                Close();
+            }
+            else
+            {
+                ErrorTextBox.Text = "Invalid path ";
+            }
+        }
+
+        private void OnSubmitNoPath(object sender, RoutedEventArgs e)
+        {
+            if (list.SaveData())
+            {
+                Close();
+            }
+            else
+            {
+                ErrorTextBox.Text = "Invalid path ";
+            }
+        }
     }
 }

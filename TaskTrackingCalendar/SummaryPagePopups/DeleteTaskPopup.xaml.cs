@@ -20,6 +20,7 @@ namespace TaskTrackingCalendar
     public partial class DeleteTaskPopup : Window
     {
         TaskList list;
+
         public DeleteTaskPopup(TaskList list)
         {
             this.list = list;

@@ -16,19 +16,19 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="68">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Class:" Margin="5"/>
             <ComboBox Name="ClassComboBox" SelectionChanged="ClassComboBox_SelectionChanged"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Height="25" Width="62">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
             <TextBlock Text="Task:" Margin="5"/>
             <ComboBox Name="TaskComboBox" SelectionChanged="TaskComboBox_SelectionChanged"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Height="18" Width="162">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2">
             <TextBlock Text="New name: "/>
             <TextBox Name="NewTaskName" Width="100"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Height="22" Width="106">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3">
             <TextBlock Text="New priority: "/>
             <ComboBox Name="PriorityComboBox">
                 <ComboBoxItem Content="1" IsSelected="True"/>
@@ -38,7 +38,7 @@
                 <ComboBoxItem Content="5"/>
             </ComboBox>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Height="26" Width="188">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4">
             <TextBlock Text="New due date:" Padding="5"/>
             <DatePicker Name="DatePicker"/>
         </StackPanel>
