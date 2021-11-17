@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="5.5*"/>
         </Grid.RowDefinitions>
         <StackPanel Name="MonthYear" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
             <!-- Displays Top Row Stuff: Month and Summary Page button -->
@@ -84,14 +84,14 @@
                 <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
                     <!-- date -->
                     <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
-                        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding date}" FontSize="10" Margin="5"/>
+                        <TextBlock Name="Day0" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" FontSize="10" Margin="5"/>
                     </StackPanel>
                     <!-- tasks -->
-                    <ListView>
+                    <ListView Name ="Day0TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding tasks}" FontSize="10" Margin="5"/>
+                                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="{Binding tasksList}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

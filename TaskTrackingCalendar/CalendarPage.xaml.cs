@@ -227,23 +227,23 @@ namespace TaskTrackingCalendar
 
         public class CalendarDate
         {
-            public int date { get; set; }
+            public string date { get; set; }
             public List<Task> taskList = new List<Task>();
 
             public CalendarDate(int date, List<Task> taskList)
             {
-                this.date = date;
+                this.date = date.ToString();
                 this.taskList.AddRange(taskList);
             }
             public CalendarDate(int date)
             {
-                this.date = date;
+                this.date = date.ToString();
                 taskList = new List<Task>();
             }
 
             public void clear()
             {
-                date = 0;
+                date = "";
                 taskList.Clear();
             }
 
@@ -252,14 +252,14 @@ namespace TaskTrackingCalendar
                 this.taskList.AddRange(taskList);
             }
 
-            public int getDate()
+            public string getDate()
             {
                 return date;
             }
 
             public void setDate(int date)
             {
-                this.date = date;
+                this.date = date.ToString();
             }
 
             public List<Task> getTaskList()
@@ -277,6 +277,7 @@ namespace TaskTrackingCalendar
             now = DateTime.Now;
             currentCalendar = new Calendar(now, list);
             DataContext = currentCalendar;
+            Day0.Text = currentCalendar.getCalendarDate(0, 0).getDate();
             //Day00 = currentCalendar.getCalendarDate(0, 0).getTaskList();
         }
         
@@ -292,7 +293,7 @@ namespace TaskTrackingCalendar
             //update current year, current month, monthTaskLists, startDay, and maxDays
             currentCalendar.changeMonth(1, list);
             //update calendar display
-            DataContext = currentCalendar;
+            //DataContext = currentCalendar;
         }
 
         private void backwardMonth(object sender, RoutedEventArgs e)
@@ -300,7 +301,7 @@ namespace TaskTrackingCalendar
             //update current year, current month, monthTaskLists, startDay, and maxDays
             currentCalendar.changeMonth(-1, list);
             //update calendar display
-            DataContext = currentCalendar;
+            //DataContext = currentCalendar;
         }
         private void OnClose(object sender, System.ComponentModel.CancelEventArgs e)
         {

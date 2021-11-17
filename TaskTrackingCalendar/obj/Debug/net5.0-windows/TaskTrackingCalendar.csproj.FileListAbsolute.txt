@@ -99,4 +99,3 @@ C:\Users\srw33\Desktop\Class\CSDS 393\TaskTrackingCalendar\TaskTrackingCalendar\
 C:\Users\srw33\Desktop\Class\CSDS 393\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\ref\TaskTrackingCalendar.dll
 C:\Users\srw33\Desktop\Class\CSDS 393\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\TaskTrackingCalendar.pdb
 C:\Users\srw33\Desktop\Class\CSDS 393\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\TaskTrackingCalendar.genruntimeconfig.cache
-C:\Users\srw33\Desktop\Class\CSDS 393\TaskTrackingCalendar\TaskTrackingCalendar\obj\Debug\net5.0-windows\TaskTrackingCalendar.csproj.CopyComplete
