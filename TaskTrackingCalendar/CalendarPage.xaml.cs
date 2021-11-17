@@ -27,14 +27,19 @@ namespace TaskTrackingCalendar
         public class Calendar
         {
             
-            private int currentYear { get; set; } //can be changed for data
-            private int currentMonth { get; set; } //can be changed for data
-            private int currentDay { get; set; }
+            public int currentYear { get; set; } //can be changed for data
+            public int currentMonth { get; set; } //can be changed for data
+            public int currentDay { get; set; }
             private int maxDays; //updated with buttons
             private int startDayofWeek; //updated with buttons
-            private String currentMonthName { get; set; } //updated with buttons
+            public String currentMonthName { get; set; } //updated with buttons
             private List<Task>[] monthTaskList = new List<Task>[31];
             private CalendarDate[,] monthTaskDays = new CalendarDate[5, 7];
+
+            public CalendarDate[,] getMonthTaskDays()
+            {
+                return monthTaskDays;
+            }
 
             public Calendar(DateTime time, TaskList list)
             {
@@ -145,7 +150,7 @@ namespace TaskTrackingCalendar
                             {
                                 monthTaskDays[week, day].clear();
                                 monthTaskDays[week, day].setDate(date);
-                                monthTaskDays[week, day].addTaskList(taskList[date-1]);
+                                monthTaskDays[week, day].addTaskList(taskList[date - 1]);
                             }
                         }
                     }
@@ -209,19 +214,23 @@ namespace TaskTrackingCalendar
                     currentMonth = 12;
                     currentYear--;
                 }
-
                 updateMonthName(currentMonth);
                 maxDays = DateTime.DaysInMonth(currentYear, currentMonth);
                 startDayofWeek = firstDayOfMonth(currentMonth, currentYear);
                 updateTaskList(list);
                 updateMonthDays(monthTaskList, startDayofWeek);
             }
+
+            public CalendarDate getDate(int date)
+            {
+                return monthTaskDays[(date % 7), (date - date % 7)];
+            }
         }
 
         public class CalendarDate
         {
-            int date { get; set; }
-            List<Task> taskList = new List<Task>();
+            public int date { get; set; }
+            public List<Task> taskList = new List<Task>();
 
             public CalendarDate(int date, List<Task> taskList)
             {
@@ -245,6 +254,11 @@ namespace TaskTrackingCalendar
                 this.taskList.AddRange(taskList);
             }
 
+            public int getDate()
+            {
+                return date;
+            }
+
             public void setDate(int date)
             {
                 this.date = date;
@@ -258,12 +272,12 @@ namespace TaskTrackingCalendar
 
         public CalendarPage(TaskList newList, SecretMainWindow parent)
         {
+            InitializeComponent();
             list = newList;
             mw = parent;
             now = DateTime.Now;
             currentCalendar = new Calendar(now, list);
             DataContext = currentCalendar;
-            InitializeComponent();
         }
 
 
@@ -280,6 +294,7 @@ namespace TaskTrackingCalendar
             //update current year, current month, monthTaskLists, startDay, and maxDays
             currentCalendar.changeMonth(1, list);
             //update calendar display
+            DataContext = currentCalendar;
         }
 
         private void backwardMonth(object sender, RoutedEventArgs e)
@@ -287,6 +302,7 @@ namespace TaskTrackingCalendar
             //update current year, current month, monthTaskLists, startDay, and maxDays
             currentCalendar.changeMonth(-1, list);
             //update calendar display
+            DataContext = currentCalendar;
         }
         private void OnClose(object sender, System.ComponentModel.CancelEventArgs e)
         {
