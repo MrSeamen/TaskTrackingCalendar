@@ -30,6 +30,7 @@ namespace TaskTrackingCalendar
         private String currentMonthName; //updated with buttons
         private List<Task>[] monthTaskList = new List<Task>[31];
         private CalendarDate[,] monthTaskDays = new CalendarDate[5, 7];
+        
 
         public String getCurrentMonthName()
         {
@@ -80,7 +81,7 @@ namespace TaskTrackingCalendar
         public class CalendarDate
         {
             int date;
-            List<Task> taskList;
+            List<Task> taskList = new List<Task>();
 
             public CalendarDate(int date, List<Task> taskList)
             {
@@ -90,7 +91,6 @@ namespace TaskTrackingCalendar
             public CalendarDate(int date)
             {
                 this.date = date;
-                taskList = new List<Task>();
             }
 
             public void clear()
@@ -131,11 +131,12 @@ namespace TaskTrackingCalendar
             currentMonth = now.Month;
             currentDay = now.Day;
             currentMonthName = monthName(currentMonth);
-            maxDays = DateTime.DaysInMonth(currentMonth, currentYear);
+            maxDays = DateTime.DaysInMonth(currentYear, currentMonth);
             startDayofWeek = firstDayOfMonth(currentMonth, currentYear);
             updateTaskList(list);
             updateMonthDays(monthTaskList, startDayofWeek);
             InitializeComponent();
+            MonthTextBox.Text = currentMonthName;
         }
 
         private int firstDayOfMonth(int month, int year)
@@ -145,10 +146,18 @@ namespace TaskTrackingCalendar
 
         private void updateTaskList(TaskList taskList)
         {
+
             //clear monthTaskList
             for (int i = 0; i < monthTaskList.Length; i++)
             {
-                monthTaskList[i].Clear();
+                if (monthTaskList[i] == null)
+                {
+                    monthTaskList[i] = new List<Task>();
+                }
+                else
+                {
+                    monthTaskList[i].Clear();
+                }
             }
             //get tasks for this month
             for (int day = 1; day < maxDays; day++)
@@ -166,9 +175,9 @@ namespace TaskTrackingCalendar
         private void updateMonthDays(List<Task>[] taskList, int dayOffSet)
         {
             int date;
-            for (int week = 0; week < monthTaskList.GetLength(0); week++)
+            for (int week = 0; week < monthTaskDays.GetLength(0); week++)
             {
-                for (int day = 0; day < monthTaskList.GetLength(1); day++)
+                for (int day = 0; day < monthTaskDays.GetLength(1); day++)
                 {
                     //handle date
                     //beginning of month
@@ -177,10 +186,10 @@ namespace TaskTrackingCalendar
                         int previousMonthMaxDays;
                         if (currentMonth == 1)
                         {
-                            previousMonthMaxDays = DateTime.DaysInMonth(12, currentYear--);
+                            previousMonthMaxDays = DateTime.DaysInMonth(currentYear--, 12);
                             date = day + previousMonthMaxDays - dayOffSet;
                         } else {
-                            previousMonthMaxDays = DateTime.DaysInMonth(currentMonth--, currentYear);
+                            previousMonthMaxDays = DateTime.DaysInMonth(currentYear, currentMonth--);
                             date = day + previousMonthMaxDays - dayOffSet;
                         }
                         if (date > previousMonthMaxDays)
@@ -198,9 +207,16 @@ namespace TaskTrackingCalendar
                             date = week * 7 + day - dayOffSet - maxDays;
                         }
                     }
-                    monthTaskDays[week, day].clear();
-                    monthTaskDays[week, day].setDate(date);
-                    monthTaskDays[week, day].addTaskList(taskList[date]);
+                    if (monthTaskDays[week, day] == null)
+                    {
+                        monthTaskDays[week, day] = new CalendarDate(date, taskList[date]);
+                    }
+                    else
+                    {
+                        monthTaskDays[week, day].clear();
+                        monthTaskDays[week, day].setDate(date);
+                        monthTaskDays[week, day].addTaskList(taskList[date]);
+                    }
                 }
             }
         }
@@ -263,6 +279,7 @@ namespace TaskTrackingCalendar
             updateTaskList(list);
             updateMonthDays(monthTaskList, startDayofWeek);
             //update calendar display
+            MonthTextBox.Text = currentMonthName;
         }
 
         private void backwardMonth(object sender, RoutedEventArgs e)
@@ -284,6 +301,7 @@ namespace TaskTrackingCalendar
             updateTaskList(list);
             updateMonthDays(monthTaskList, startDayofWeek);
             //update calendar display
+            MonthTextBox.Text = currentMonthName;
         }
 
 
