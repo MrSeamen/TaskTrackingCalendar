@@ -329,42 +329,27 @@ namespace TaskTrackingCalendar.Tests
         }
 
         [TestMethod]
-        public void TestSummaryData_WhenNotSorted_WithClass()
-        {
-            // Arrange
-            var taskList = new TaskList();
-            taskList.CreateClass("ClassA");
-            taskList.CreateTask("ClassA", "HW1", 2, default);
-            taskList.CreateTask("ClassA", "HW2", 1, default);
-            taskList.CreateClass("ClassB");
-            taskList.CreateTask("ClassB", "Project", 2, default);
-            taskList.CreateTask("ClassB", "Exam", 3, default);
-            taskList.CreateReminder("ClassB", "Project", taskList.findTask("Project").GetDate());
-            taskList.CreateReminder("ClassB", "Exam", taskList.findTask("Exam").GetDate());
-
-            List<Task> tasks = new List<Task>() { new Task("HW1", "ClassA", 2, default), new Task("HW2", "ClassA", 1, default) };
-            List<Reminder> reminders = new List<Reminder>();
-
-            // Act
-            var result = taskList.SummaryData(false, "ClassA");
-
-            // Assert
-            CollectionAssert.AreEqual(result.Item1, tasks);
-            CollectionAssert.AreEqual(result.Item2, reminders);
-        }
-
-        [TestMethod] 
-        public void TestSummaryData_NoClass()
+        public void TestGetSummaryTasks()
         {
             // Arrange
             var taskList = new TaskList();
 
+            var now = DateTime.Now;
+            taskList.CreateClass("classA");
+            taskList.CreateTask("classA", "taskA", 2, now);
+            taskList.CreateTask("classA", "taskB", 3, now);
+            taskList.CreateClass("classB");
+            taskList.CreateTask("classB", "taskC", 1, now);
+
             // Act
-            var result = taskList.SummaryData();
+            var tasks = taskList.GetSummaryTasks();
 
             // Assert
-            CollectionAssert.AreEqual(result.Item1, new List<Task>());
-            CollectionAssert.AreEqual(result.Item2, new List<Reminder>());
+            Assert.IsFalse(taskList.CreateTask("classA", "taskA", 2, now));
+            Assert.AreEqual(3, tasks.Count);
+            Assert.AreEqual("taskC", tasks[0].GetName());
+            Assert.AreEqual("taskA", tasks[1].GetName());
+            Assert.AreEqual("taskB", tasks[2].GetName());
         }
 
         [TestMethod]

@@ -14,15 +14,15 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="68">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Class:" Margin="5"/>
             <ComboBox Name="ClassComboBox" SelectionChanged="ClassComboBox_SelectionChanged"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Height="25" Width="62">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
             <TextBlock Text="Task:" Margin="5"/>
             <ComboBox Name="TaskComboBox"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Height="26" Width="188">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2">
             <TextBlock Text="Due date:" Padding="5"/>
             <DatePicker Name="DatePicker"/>
         </StackPanel>

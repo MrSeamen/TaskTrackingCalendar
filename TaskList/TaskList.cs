@@ -269,7 +269,10 @@ namespace TaskTrackingCalendar
             {
                 foreach (var l in tasks.Values)
                 {
-                    list.Concat(l);
+                    foreach (var item in l)
+                    {
+                        list.Add(item);
+                    }
                 }
             }
             
@@ -335,7 +338,7 @@ namespace TaskTrackingCalendar
 
         public List<Reminder> GetSummaryReminders(string sortClassName = "")
         {
-            if (sortClassName != "")
+            if (sortClassName == "")
             {
                 // Every reminder
                 return reminders;
@@ -343,7 +346,7 @@ namespace TaskTrackingCalendar
             {
                 // Only reminders in that class
                 var rem = reminders;
-                foreach (var r in rem)
+                foreach (var r in reminders)
                 {
                     if (r.GetClassName() != sortClassName)
                     {
@@ -352,78 +355,6 @@ namespace TaskTrackingCalendar
                 }
                 return rem;
             }
-        }
-
-        public (List<Task>, List<Reminder>) SummaryData(bool sortPriority = true, string sortClassName = "")
-        {
-            List<Task> taskList = new List<Task>();
-            List<Reminder> reminderList = new List<Reminder>();
-            // if sortClassName is provided, need to look up that class
-            if (!sortClassName.Equals(""))
-            {
-                if (tasks.TryGetValue(sortClassName, out taskList))
-                {
-                    if (sortPriority == true)
-                    {
-                        List<Task> sortedList = selectionSort(taskList);
-                        taskList.Clear();
-                        taskList.AddRange(sortedList);
-                    }
-                } //else class doesn't exist, list data is empty
-            } else //not sorting for a specific class
-            {
-                if (tasks.Values.Any())
-                {
-                    foreach (List<Task> t in tasks.Values)
-                    {
-                        taskList.AddRange(t);
-                    }
-                    if (sortPriority == true)
-                    {
-                        List<Task> sortedList = selectionSort(taskList);
-                        taskList.Clear();
-                        taskList.AddRange(sortedList);
-                    }
-                } //else empty data, list data will be empty
-            }
-            //reminders will be in the right order no matter what because tasklist will be sorted or not based on user designation
-            if (reminders.Any())
-            {
-                foreach (Reminder r in reminders)
-                {
-                    foreach (Task t in taskList)
-                    {
-                        if (t.GetName() == r.GetTaskName())
-                        {
-                            reminderList.Add(r);
-                        }
-                    }
-                }
-            }
-            return (taskList, reminderList);
-        }
-
-        //helper method for Summary Data
-        public List<Task> selectionSort(List<Task> taskList)
-        {
-            List<Task> workingList = new List<Task>(taskList);
-            //selection sort O(n^2)
-            for (int i = 0; i < workingList.Capacity; i++)
-            {
-                int maxPosition = -1;
-                for (int j = 0; j < workingList.Capacity; j++)
-                {
-                    if (workingList[i].GetPriority() > workingList[j].GetPriority())
-                    {
-                        maxPosition = j;
-                    }
-                }
-                Task current = new Task(workingList[i].GetName(), workingList[i].GetClassName(), workingList[i].GetPriority(), workingList[i].GetDate());
-                Task destinationTask = new Task(workingList[maxPosition].GetName(), workingList[maxPosition].GetClassName(), workingList[maxPosition].GetPriority(), workingList[maxPosition].GetDate());
-                workingList[maxPosition] = current;
-                workingList[i] = destinationTask;
-            }
-            return workingList;
         }
 
         public List<Task> CalendarData(int month = -1)

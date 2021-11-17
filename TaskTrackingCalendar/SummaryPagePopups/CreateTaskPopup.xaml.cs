@@ -26,6 +26,8 @@ namespace TaskTrackingCalendar
             this.list = list;
 
             InitializeComponent();
+
+            DatePicker.SelectedDate = DateTime.Today;
             foreach (var c in list.GetSummaryClasses())
             {
                 ClassComboBox.Items.Add(c);

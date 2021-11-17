@@ -20,11 +20,13 @@ namespace TaskTrackingCalendar.SummaryPagePopups
     public partial class CreateReminderPopup : Window
     {
         TaskList list;
+
         public CreateReminderPopup(TaskList list)
         {
             this.list = list;
-            InitializeComponent();
 
+            InitializeComponent();
+            DatePicker.SelectedDate = DateTime.Now;
             foreach (var c in list.GetSummaryClasses())
             {
                 ClassComboBox.Items.Add(c);

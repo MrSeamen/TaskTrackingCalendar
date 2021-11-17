@@ -20,6 +20,7 @@ namespace TaskTrackingCalendar.SummaryPagePopups
     public partial class EditReminderPopup : Window
     {
         TaskList list;
+
         public EditReminderPopup(TaskList list)
         {
             this.list = list;
