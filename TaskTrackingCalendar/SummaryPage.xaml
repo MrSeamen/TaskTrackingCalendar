@@ -14,8 +14,15 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Bottom">
-            <TextBlock Text="Tasks:" FontSize="18" FontWeight="Bold"/>
+        <StackPanel Orientation="Vertical" Margin="5" VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Tasks:" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock Margin="20,0,0,0" Text="Sort by priority: " VerticalAlignment="Center"/>
+                <CheckBox Checked="PriorityCheckChanged" Unchecked="PriorityCheckChanged" Margin="5,0,0,0" Name="SortPriorityCheckBox" VerticalAlignment="Center" IsChecked="True"/>
+                <TextBlock Margin="20,0,0,0" Text="Class:" VerticalAlignment="Center"/>
+                <ComboBox Width="100" Margin="5" Name="ClassComboBox" SelectionChanged="ClassComboBoxSelectionChanged" SelectedIndex="0"/>
+                <Button Content="Submit" Margin="5" Click="OnRefreshPage"/>
+            </StackPanel>
             <ListView Name="TaskListView" Height="415">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -44,43 +51,33 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="0,10,0,10" VerticalAlignment="Bottom">
-            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right" Height="80">
-                <Button Click="OnSaveData" Width="75" Padding="5">
-                    <TextBlock Text="Save Data" TextWrapping="Wrap" TextAlignment="Center"/>
-                </Button>
-                <Button Click="OnLoadData" Width="75" Padding="5" Margin="0,10,0,0">
-                    <TextBlock Text="Load Data" TextWrapping="Wrap" TextAlignment="Center"/>
-                </Button>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
-                <TextBlock Text="Reminders:" FontSize="18" FontWeight="Bold"/>
-                <ListView Name="ReminderListView" Height="300">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Button>
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Left">
-                                        <TextBlock Text="{Binding Task}" FontWeight="Bold"/>
-                                        <TextBlock Text=" - "/>
-                                        <TextBlock Text="{Binding Class}"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-                                        <TextBlock Margin="50,0,0,0" Text="Date: "/>
-                                        <TextBlock Text="{Binding Month}"/>
-                                        <TextBlock Text="/"/>
-                                        <TextBlock Text="{Binding Day}"/>
-                                        <TextBlock Text="/"/>
-                                        <TextBlock Text="{Binding Year}"/>
-                                    </StackPanel>
-                                </Grid>                                
-                            </Button>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="5" VerticalAlignment="Bottom">
+            <TextBlock Text="Reminders:" FontSize="18" FontWeight="Bold"/>
+            <ListView Name="ReminderListView" Height="300">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Button>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Left">
+                                    <TextBlock Text="{Binding Task}" FontWeight="Bold"/>
+                                    <TextBlock Text=" - "/>
+                                    <TextBlock Text="{Binding Class}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
+                                    <TextBlock Margin="50,0,0,0" Text="Date: "/>
+                                    <TextBlock Text="{Binding Month}"/>
+                                    <TextBlock Text="/"/>
+                                    <TextBlock Text="{Binding Day}"/>
+                                    <TextBlock Text="/"/>
+                                    <TextBlock Text="{Binding Year}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5">
+        <StackPanel Orientation="Vertical" Grid.Column="2">
             <Button Margin="5" Padding="5" Click="OnCreateClass">
                 <TextBlock Text="Create Class" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button>
@@ -108,8 +105,16 @@
             <Button Margin="5" Padding="5" Click="OnDeleteReminder">
                 <TextBlock Text="Delete Reminder" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button Height="50" Width="55" Margin="0,0,10,0" Click="OnSaveData">
+                    <TextBlock Text="Save Data" TextWrapping="Wrap" Margin="5"/>
+                </Button>
+                <Button Height="50" Width="55" Click="OnLoadData">
+                    <TextBlock Text="Load Data" TextWrapping="Wrap" Margin="5"/>
+                </Button>
+            </StackPanel>
         </StackPanel>
-        <Button Grid.Column="2" VerticalAlignment="Bottom" Margin="10" Padding="5" Click="OnOpenCalendar">
+        <Button Grid.Column="2" VerticalAlignment="Bottom" Margin="5" Padding="5" Click="OnOpenCalendar">
             <TextBlock Text="Open Calendar Page" TextWrapping="Wrap" TextAlignment="Center"/>
         </Button>
     </Grid>

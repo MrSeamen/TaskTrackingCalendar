@@ -262,7 +262,7 @@ namespace TaskTrackingCalendar
         {
             // Get relevant tasks
             var list = new List<Task>();
-            if (sortClassName != "")
+            if (!sortClassName.Equals(""))
             {
                 tasks.TryGetValue(sortClassName, out list);
             } else
@@ -310,9 +310,9 @@ namespace TaskTrackingCalendar
 
         private List<Task> SummaryDueDateSort(List<Task> list)
         {
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count - 1; i++)
             {
-                for (int j = 0; j < list.Count; j++)
+                for (int j = 0; j < list.Count - i - 1; j++)
                 {
                     if (list[j].GetDate() > list[j + 1].GetDate())
                     {

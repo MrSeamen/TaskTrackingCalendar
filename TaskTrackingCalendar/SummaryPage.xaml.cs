@@ -70,7 +70,25 @@ namespace TaskTrackingCalendar
 
         public void RefreshPage()
         {
-            var tasks = list.GetSummaryTasks();
+            // Update combo box of classes
+            var index = ClassComboBox.SelectedIndex;
+            ClassComboBox.Items.Clear();
+            ClassComboBox.Items.Add("All Classes");
+            foreach (var c in list.GetSummaryClasses())
+            {
+                ClassComboBox.Items.Add(c);
+            }
+            if (index < ClassComboBox.Items.Count && index >= 0)
+            {
+                ClassComboBox.SelectedIndex = index;
+            }
+            else
+            {
+                ClassComboBox.SelectedIndex = 0;
+            }
+
+            // Update displayed tasks
+            var tasks = list.GetSummaryTasks(sortPriority, sortClass);
             displayTasks = new List<DisplayTask>();
             foreach (var t in tasks)
             {
@@ -79,7 +97,8 @@ namespace TaskTrackingCalendar
             }
             TaskListView.ItemsSource = displayTasks;
 
-            var reminders = list.GetSummaryReminders();
+            // Update displayed reminders
+            var reminders = list.GetSummaryReminders(sortClass);
             displayReminders = new List<DisplayReminder>();
             foreach (var r in reminders)
             {
@@ -185,6 +204,29 @@ namespace TaskTrackingCalendar
         {
             mw.OpenCalendarPage(list);
             Close();
+        }
+
+        private void PriorityCheckChanged(object sender, RoutedEventArgs e)
+        {
+            sortPriority = (bool)SortPriorityCheckBox.IsChecked;
+        }
+
+        private void ClassComboBoxSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            string c = (string)ClassComboBox.SelectedItem;
+            if (c == null || c.Equals("All Classes"))
+            {
+                sortClass = "";
+            }
+            else
+            {
+                sortClass = c;
+            }
+        }
+
+        private void OnRefreshPage(object sender, RoutedEventArgs e)
+        {
+            RefreshPage();
         }
     }
 }
