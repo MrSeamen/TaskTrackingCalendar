@@ -70,11 +70,11 @@ namespace TaskTrackingCalendar
                     }
                 }
                 //get tasks for this month
-                for (int day = 1; day < maxDays; day++)
+                for (int day = 0; day < maxDays; day++)
                 {
                     foreach (Task task in taskList.GetSummaryTasks())
                     {
-                        if (task.GetDate().Month == currentMonth && task.GetDate().Day == day)
+                        if (task.GetDate().Month == currentMonth && task.GetDate().Day == day+1)
                         {
                             monthTaskList[day].Add(task);
                         }
@@ -87,10 +87,12 @@ namespace TaskTrackingCalendar
                 int year = 0;
                 int month = 0;
                 int date = 0;
+                
                 for (int week = 0; week < monthTaskDays.GetLength(0); week++)
                 {
                     for (int day = 0; day < monthTaskDays.GetLength(1); day++)
                     {
+                        
                         month = currentMonth;
                         year = currentYear;
                         //handle date
@@ -112,7 +114,14 @@ namespace TaskTrackingCalendar
                             }
                             if (day < dayOffSet)
                             {
-                                ++month;
+                                if (month == 12)
+                                {
+                                    month = 1;
+                                }
+                                else
+                                {
+                                    ++month;
+                                }
                                 date += previousMonthMaxDays;
                             }
                         }
@@ -130,11 +139,16 @@ namespace TaskTrackingCalendar
                         {
                             if (taskList[date - 1] == null)
                             {
-                                monthTaskDays[week, day] = new CalendarDate(date);
+                                monthTaskDays[week, day] = new CalendarDate(date);                                
                             }
                             else
                             {
                                 monthTaskDays[week, day] = new CalendarDate(date, taskList[date - 1]);
+                                foreach (Task t in monthTaskDays[week, day].getTaskList())
+                                {
+                                    Trace.WriteLine(t.GetName());
+                                    Trace.WriteLine(t.GetClassName());
+                                }
                             }
                         }
                         else
@@ -149,6 +163,11 @@ namespace TaskTrackingCalendar
                                 monthTaskDays[week, day].clear();
                                 monthTaskDays[week, day].setDate(date);
                                 monthTaskDays[week, day].addTaskList(taskList[date - 1]);
+                                foreach (Task t in monthTaskDays[week, day].getTaskList())
+                                {
+                                    Trace.WriteLine(t.GetName());
+                                    Trace.WriteLine(t.GetClassName());
+                                }
                             }
                         }
                     }
@@ -282,19 +301,13 @@ namespace TaskTrackingCalendar
         }
 
         /// Interaction logic for CalendarPage.xaml
-        public CalendarPage(TaskList newList, SecretMainWindow parent)
+        public CalendarPage(TaskList list, SecretMainWindow parent)
         {
             InitializeComponent();
-            this.list = newList;
-            var things = list.GetSummaryTasks();
-            foreach (var t in things)
-            {
-                Trace.WriteLine(t);
-            }
+            this.list = list;
             mw = parent;
             now = DateTime.Now;
             currentCalendar = new Calendar(now, list);
-            DataContext = currentCalendar;
             refresh();
         }
         
@@ -403,7 +416,7 @@ namespace TaskTrackingCalendar
         public List<DateTask> getDateList(int week, int day)
         {
             List<DateTask> dateList = new List<DateTask>();
-            foreach (Task t in currentCalendar.getCalendarDate(0, 0).getTaskList())
+            foreach (Task t in currentCalendar.getCalendarDate(week, day).getTaskList())
             {
                 dateList.Add(new DateTask(t.GetPriority().ToString(), t.GetClassName(), t.GetName()));
             }
