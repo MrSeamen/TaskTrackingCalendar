@@ -92,7 +92,6 @@ namespace TaskTrackingCalendar
             displayTasks = new List<DisplayTask>();
             foreach (var t in tasks)
             {
-                Trace.WriteLine(t);
                 displayTasks.Add(new DisplayTask() { Name = t.GetName(), Day = t.GetDate().Day, Month = t.GetDate().Month, Year = t.GetDate().Year, Priority = t.GetPriority(), Class = t.GetClassName() });
             }
             TaskListView.ItemsSource = displayTasks;

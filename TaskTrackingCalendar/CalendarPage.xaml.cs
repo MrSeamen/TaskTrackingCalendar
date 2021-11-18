@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -284,7 +285,12 @@ namespace TaskTrackingCalendar
         public CalendarPage(TaskList newList, SecretMainWindow parent)
         {
             InitializeComponent();
-            list = newList;
+            this.list = newList;
+            var things = list.GetSummaryTasks();
+            foreach (var t in things)
+            {
+                Trace.WriteLine(t);
+            }
             mw = parent;
             now = DateTime.Now;
             currentCalendar = new Calendar(now, list);
