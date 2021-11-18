@@ -9,10 +9,6 @@
         WindowStartupLocation="CenterScreen"
         Closing="OnClose">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="5.5*"/>
@@ -32,7 +28,7 @@
                 <TextBlock Text="Next Month" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Column="1" Margin="10">
+        <StackPanel Grid.Column="1" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center">
             <!--Side bar with button to go back to previous page. Could add other buttons as well?-->
             <Button Margin="5" Padding="5" Click="OnOpenSummary" Height="30" Width="100">
                 <TextBlock Text="Summary Page" TextWrapping="Wrap" TextAlignment="Center"/>

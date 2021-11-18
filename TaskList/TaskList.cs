@@ -345,39 +345,16 @@ namespace TaskTrackingCalendar
             } else
             {
                 // Only reminders in that class
-                var rem = reminders;
-                foreach (var r in reminders)
+                var rem = new List<Reminder>();
+                foreach(var r in reminders)
                 {
-                    if (r.GetClassName() != sortClassName)
+                    if (r.GetClassName() == sortClassName)
                     {
-                        rem.Remove(r);
+                        rem.Add(r);
                     }
                 }
                 return rem;
             }
-        }
-
-        public List<Task> CalendarData(int month = -1)
-        {
-            if (month == -1)
-            {
-                month = DateTime.Now.Month;
-            }
-            List<Task> taskList = new List<Task>();
-            if (tasks.Values.Any())
-            {
-                foreach (List<Task> l in tasks.Values)
-                {
-                    foreach (Task t in l)
-                    {
-                        if (t.GetDate().Month.Equals(month))
-                        {
-                            taskList.Add(t);
-                        }
-                    }
-                }
-            }
-            return taskList;
         }
 
         public bool SaveData(string path = "")

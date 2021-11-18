@@ -353,13 +353,113 @@ namespace TaskTrackingCalendar.Tests
         }
 
         [TestMethod]
-        public void TestCalendarData_NoValues()
+        public void TestGetSummaryTasks_FilterClass()
         {
             // Arrange
             var taskList = new TaskList();
 
-            // Act, Assert
-            CollectionAssert.AreEqual(taskList.CalendarData(), new List<Task>());
+            var now = DateTime.Now;
+            taskList.CreateClass("classA");
+            taskList.CreateTask("classA", "taskA", 2, now);
+            taskList.CreateTask("classA", "taskB", 3, DateTime.MinValue);
+            taskList.CreateClass("classB");
+            taskList.CreateTask("classB", "taskC", 1, now);
+
+            // Act
+            var tasks = taskList.GetSummaryTasks(false, "classA");
+
+            // Assert
+            Assert.IsFalse(taskList.CreateTask("classA", "taskA", 2, now));
+            Assert.AreEqual(2, tasks.Count);
+            Assert.AreEqual("taskB", tasks[0].GetName());
+            Assert.AreEqual("taskA", tasks[1].GetName());
+        }
+
+        [TestMethod]
+        public void TestGetSummaryClasses()
+        {
+            // Arrange
+            var taskList = new TaskList();
+
+            var now = DateTime.Now;
+            taskList.CreateClass("classA");
+            taskList.CreateClass("classB");
+            taskList.CreateClass("classC");
+            taskList.CreateClass("classD");
+
+            // Act
+            var classes = taskList.GetSummaryClasses();
+
+            // Assert
+            Assert.IsFalse(taskList.CreateClass("classA"));
+            Assert.AreEqual(4, classes.Count);
+            Assert.IsTrue(classes.Contains("classA"));
+            Assert.IsTrue(classes.Contains("classB"));
+            Assert.IsTrue(classes.Contains("classC"));
+            Assert.IsTrue(classes.Contains("classD"));
+        }
+
+        [TestMethod]
+        public void TestGetSummaryReminders()
+        {
+            // Arrange
+            var taskList = new TaskList();
+
+            var now = DateTime.Now;
+            taskList.CreateClass("classA");
+            taskList.CreateTask("classA", "taskA", 2, now);
+            taskList.CreateReminder("classA", "taskA", now);
+            taskList.CreateTask("classA", "taskB", 3, now);
+            taskList.CreateReminder("classA", "taskB", now);
+            taskList.CreateClass("classB");
+            taskList.CreateTask("classB", "taskC", 1, now);
+            taskList.CreateReminder("classB", "taskC", now);
+
+            // Act
+            var reminders = taskList.GetSummaryReminders();
+
+            // Assert
+            Assert.IsFalse(taskList.CreateTask("classA", "taskA", 2, now));
+            Assert.AreEqual(3, reminders.Count);
+            var reminderNames = new List<string>();
+            foreach(var r in reminders)
+            {
+                reminderNames.Add(r.GetTaskName());
+            }
+            Assert.IsTrue(reminderNames.Contains("taskA"));
+            Assert.IsTrue(reminderNames.Contains("taskB"));
+            Assert.IsTrue(reminderNames.Contains("taskC"));
+        }
+
+        [TestMethod]
+        public void TestGetSummaryReminders_FilterClass()
+        {
+            // Arrange
+            var taskList = new TaskList();
+
+            var now = DateTime.Now;
+            taskList.CreateClass("classA");
+            taskList.CreateTask("classA", "taskA", 2, now);
+            taskList.CreateReminder("classA", "taskA", now);
+            taskList.CreateTask("classA", "taskB", 3, now);
+            taskList.CreateReminder("classA", "taskB", now);
+            taskList.CreateClass("classB");
+            taskList.CreateTask("classB", "taskC", 1, now);
+            taskList.CreateReminder("classB", "taskC", now);
+
+            // Act
+            var reminders = taskList.GetSummaryReminders("classA");
+
+            // Assert
+            Assert.IsFalse(taskList.CreateTask("classA", "taskA", 2, now));
+            Assert.AreEqual(2, reminders.Count);
+            var reminderNames = new List<string>();
+            foreach (var r in reminders)
+            {
+                reminderNames.Add(r.GetTaskName());
+            }
+            Assert.IsTrue(reminderNames.Contains("taskA"));
+            Assert.IsTrue(reminderNames.Contains("taskB"));
         }
 
         [TestMethod]

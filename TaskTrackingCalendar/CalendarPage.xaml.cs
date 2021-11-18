@@ -77,7 +77,7 @@ namespace TaskTrackingCalendar
                 {
                     foreach (Task task in taskList.GetSummaryTasks())
                     {
-                        if (task.GetDate().Month == month && task.GetDate().Day == day+1)
+                        if (task.GetDate().Month == month && task.GetDate().Day == day+1 && task.GetDate().Year == currentYear)
                         {
                             monthTaskList[day].Add(task);
                         }
