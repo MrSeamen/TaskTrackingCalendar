@@ -69,12 +69,15 @@ namespace TaskTrackingCalendar
                         monthTaskList[i].Clear();
                     }
                 }
-                //get tasks for this month
+                //get tasks for this month and within the days that overlap
+                int year = currentYear;
+                int month = currentMonth;
+
                 for (int day = 0; day < maxDays; day++)
                 {
                     foreach (Task task in taskList.GetSummaryTasks())
                     {
-                        if (task.GetDate().Month == currentMonth && task.GetDate().Day == day+1)
+                        if (task.GetDate().Month == month && task.GetDate().Day == day+1)
                         {
                             monthTaskList[day].Add(task);
                         }
@@ -134,41 +137,16 @@ namespace TaskTrackingCalendar
                                 ++month;
                             }
                         }
-
+                        //assign task days
                         if (monthTaskDays[week, day] == null)
                         {
-                            if (taskList[date - 1] == null)
-                            {
-                                monthTaskDays[week, day] = new CalendarDate(date);                                
-                            }
-                            else
-                            {
-                                monthTaskDays[week, day] = new CalendarDate(date, taskList[date - 1]);
-                                foreach (Task t in monthTaskDays[week, day].getTaskList())
-                                {
-                                    Trace.WriteLine(t.GetName());
-                                    Trace.WriteLine(t.GetClassName());
-                                }
-                            }
+                            monthTaskDays[week, day] = new CalendarDate(date, taskList[date - 1]);
                         }
                         else
                         {
-                            if (month != currentMonth)
-                            {
-                                monthTaskDays[week, day].clear();
-                                monthTaskDays[week, day].setDate(date);
-                            }
-                            else
-                            {
-                                monthTaskDays[week, day].clear();
-                                monthTaskDays[week, day].setDate(date);
-                                monthTaskDays[week, day].addTaskList(taskList[date - 1]);
-                                foreach (Task t in monthTaskDays[week, day].getTaskList())
-                                {
-                                    Trace.WriteLine(t.GetName());
-                                    Trace.WriteLine(t.GetClassName());
-                                }
-                            }
+                            monthTaskDays[week, day].clear();
+                            monthTaskDays[week, day].setDate(date);
+                            monthTaskDays[week, day].addTaskList(taskList[date - 1]);
                         }
                     }
                 }
