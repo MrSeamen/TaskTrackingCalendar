@@ -86,10 +86,10 @@
                     <ListView Name ="Day0TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -104,10 +104,10 @@
                     <ListView Name ="Day1TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -122,10 +122,10 @@
                     <ListView Name ="Day2TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -140,10 +140,10 @@
                     <ListView Name ="Day3TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -158,10 +158,10 @@
                     <ListView Name ="Day4TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -176,10 +176,10 @@
                     <ListView Name ="Day5TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -194,10 +194,10 @@
                     <ListView Name ="Day6TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -212,10 +212,10 @@
                     <ListView Name ="Day7TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -230,10 +230,10 @@
                     <ListView Name ="Day8TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -248,10 +248,10 @@
                     <ListView Name ="Day9TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -266,10 +266,10 @@
                     <ListView Name ="Day10TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -284,10 +284,10 @@
                     <ListView Name ="Day11TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -302,10 +302,10 @@
                     <ListView Name ="Day12TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -320,10 +320,10 @@
                     <ListView Name ="Day13TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -338,10 +338,10 @@
                     <ListView Name ="Day14TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -356,10 +356,10 @@
                     <ListView Name ="Day15TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -374,10 +374,10 @@
                     <ListView Name ="Day16TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -392,10 +392,10 @@
                     <ListView Name ="Day17TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -410,10 +410,10 @@
                     <ListView Name ="Day18TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -428,10 +428,10 @@
                     <ListView Name ="Day19TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -446,10 +446,10 @@
                     <ListView Name ="Day20TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -464,10 +464,10 @@
                     <ListView Name ="Day21TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -482,10 +482,10 @@
                     <ListView Name ="Day22TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -500,10 +500,10 @@
                     <ListView Name ="Day23TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -518,10 +518,10 @@
                     <ListView Name ="Day24TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -536,10 +536,10 @@
                     <ListView Name ="Day25TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -554,10 +554,10 @@
                     <ListView Name ="Day26TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -572,10 +572,10 @@
                     <ListView Name ="Day27TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -590,10 +590,10 @@
                     <ListView Name ="Day28TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -608,10 +608,10 @@
                     <ListView Name ="Day29TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -626,10 +626,10 @@
                     <ListView Name ="Day30TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -644,10 +644,10 @@
                     <ListView Name ="Day31TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -662,10 +662,10 @@
                     <ListView Name ="Day32TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -680,10 +680,10 @@
                     <ListView Name ="Day33TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -698,10 +698,10 @@
                     <ListView Name ="Day34TL">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Priority}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding AcademicClass}" FontSize="7" Margin="5"/>
-                                    <TextBlock Text="{Binding TaskName}" FontSize="7" Margin="5"/>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Priority}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding AcademicClass}" FontSize="10" Margin="5"/>
+                                    <TextBlock Text="{Binding TaskName}" FontSize="10" Margin="5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

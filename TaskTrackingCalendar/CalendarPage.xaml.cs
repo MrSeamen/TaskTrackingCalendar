@@ -133,14 +133,14 @@ namespace TaskTrackingCalendar
                             //end of month
                             if (date > maxDays)
                             {
-                                date -= maxDays;
                                 ++month;
+                                date -= maxDays;
                             }
                         }
-                        //assign task days
+                        //assign task dates
                         if (monthTaskDays[week, day] == null)
                         {
-                            monthTaskDays[week, day] = new CalendarDate(date, taskList[date - 1]);
+                            monthTaskDays[week, day] = new CalendarDate(date);
                         }
                         else
                         {
