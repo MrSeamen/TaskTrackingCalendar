@@ -71,6 +71,8 @@ namespace TaskTrackingCalendar
 
         public bool DeleteClass(string aClass)
         {
+            reminders.RemoveAll(r => r.GetClassName() == aClass);
+
             if (tasks.ContainsKey(aClass))
             {
                 tasks.Remove(aClass);
@@ -375,13 +377,13 @@ namespace TaskTrackingCalendar
             var data = new List<string>();
             foreach (string key in tasks.Keys)
             {
-                data.Add("CLASS " + key);
+                data.Add("CLASS~" + key);
                 var list = new List<Task>();
                 if (tasks.TryGetValue(key, out list))
                 {
                     foreach (Task task in list)
                     {
-                        data.Add("TASK " + key + " " + task.GetName() + " " + task.GetClassName() + " " + task.GetPriority() + " " + task.GetDate().ToString());
+                        data.Add("TASK~" + key + "~" + task.GetName() + "~" + task.GetClassName() + "~" + task.GetPriority() + "~" + task.GetDate().ToString());
                     }
                 } else
                 {
@@ -391,7 +393,7 @@ namespace TaskTrackingCalendar
             }
             foreach (Reminder rem in reminders)
             {
-                data.Add("REMINDER " + rem.GetClassName() + " " + rem.GetTaskName() + " " + rem.GetTime().ToString());
+                data.Add("REMINDER~" + rem.GetClassName() + "~" + rem.GetTaskName() + "~" + rem.GetTime().ToString());
             }
 
             // Write data to file
@@ -434,7 +436,7 @@ namespace TaskTrackingCalendar
             reminders = new List<Reminder>();
             foreach (string s in lines)
             {
-                var arr = s.Split(" ");
+                var arr = s.Split("~");
                 switch (arr[0])
                 {
                     case "CLASS":

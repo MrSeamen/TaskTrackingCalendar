@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskTrackingCalendar.SummaryPagePopups"
         mc:Ignorable="d"
-        Title="LoadDataPopup" Height="150" Width="300"
+        Title="LoadDataPopup" Height="200" Width="300"
         WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="File Path:" Margin="5"/>
-            <TextBox Name="FilePathTextBox" Width="100" Height="20"/>
-            <Button Margin="5" Click="OnBrowse">
-                <TextBlock Text="Browse"/>
-            </Button>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Margin="0,0,0,15" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Enter the path to the folder where the data was saved."/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="File Path:" Margin="5"/>
+                <TextBox Name="FilePathTextBox" Width="150" Height="20"/>
+            </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Margin="5">
             <TextBlock Name="ErrorTextBox" Padding="5" />
@@ -25,7 +25,7 @@
                 <TextBlock Text="Submit"/>
             </Button>
             <Button Width="75" Height="40" Click="OnSubmitNoPath" Margin="5">
-                <TextBlock Text="Submit No Path" TextWrapping="Wrap" TextAlignment="Center"/>
+                <TextBlock Text="Use Default Path" TextWrapping="Wrap" TextAlignment="Center"/>
             </Button>
         </StackPanel>
     </Grid>

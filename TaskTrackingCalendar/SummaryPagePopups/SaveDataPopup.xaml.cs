@@ -27,19 +27,6 @@ namespace TaskTrackingCalendar.SummaryPagePopups
             InitializeComponent();
         }
 
-        private void OnBrowse(object sender, RoutedEventArgs e)
-        {
-            var dlg = new Microsoft.Win32.OpenFileDialog();
-
-            bool? result = dlg.ShowDialog();
-
-            if (result == true)
-            {
-                string filename = dlg.FileName;
-                FilePathTextBox.Text = filename;
-            }
-        }
-
         private void OnSubmit(object sender, RoutedEventArgs e)
         {
             var filePath = FilePathTextBox.Text;

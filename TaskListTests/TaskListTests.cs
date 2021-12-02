@@ -497,22 +497,22 @@ namespace TaskTrackingCalendar.Tests
         {
             // Arrange
             var taskList = new TaskList();
-            taskList.CreateClass("classA");
+            taskList.CreateClass("class A");
             taskList.CreateClass("classB");
 
-            taskList.CreateTask("classA", "taskA", 3, DateTime.Now);
+            taskList.CreateTask("class A", "taskA", 3, DateTime.Now);
 
-            taskList.CreateReminder("ClassA", "taskA", DateTime.Now);
+            taskList.CreateReminder("class A", "taskA", DateTime.Now);
 
             // Act
             Assert.IsTrue(taskList.SaveData(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)),
                 "Save failed.");
 
             // Assert
-            Assert.IsTrue(taskList.DeleteClass("classA"));
+            Assert.IsTrue(taskList.DeleteClass("class A"));
             Assert.IsTrue(taskList.DeleteClass("classB"));
 
-            Assert.IsFalse(taskList.DeleteClass("classA"));
+            Assert.IsFalse(taskList.DeleteClass("class A"));
             Assert.IsFalse(taskList.DeleteClass("classB"));
 
             // Act
@@ -520,7 +520,7 @@ namespace TaskTrackingCalendar.Tests
                 "Load failed.");
 
             // Assert
-            Assert.IsTrue(taskList.DeleteClass("classA"));
+            Assert.IsTrue(taskList.DeleteClass("class A"));
             Assert.IsTrue(taskList.DeleteClass("classB"));
         }
 
