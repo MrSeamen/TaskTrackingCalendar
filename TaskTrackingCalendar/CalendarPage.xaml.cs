@@ -117,15 +117,17 @@ namespace TaskTrackingCalendar
                             }
                             if (day < dayOffSet)
                             {
+                                date += previousMonthMaxDays;
+                            } else
+                            {
                                 if (month == 12)
                                 {
                                     month = 1;
-                                }
-                                else
+                                    ++year;
+                                } else
                                 {
                                     ++month;
                                 }
-                                date += previousMonthMaxDays;
                             }
                         }
                         else if (week == monthTaskDays.GetLength(0) - 1)
@@ -146,6 +148,9 @@ namespace TaskTrackingCalendar
                         {
                             monthTaskDays[week, day].clear();
                             monthTaskDays[week, day].setDate(date);
+                        }
+                        if (month == currentMonth)
+                        {
                             monthTaskDays[week, day].addTaskList(taskList[date - 1]);
                         }
                     }
