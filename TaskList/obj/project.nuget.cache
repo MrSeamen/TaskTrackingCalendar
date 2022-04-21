@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "0L+vJ/OSlEBH8czNjevaV89Y8nIjp3A2jKmovTn9xoDX5g22yGwx2loyMVtAJgiaDPrelKpSHW8EGCNGssmmzg==",
+  "dgSpecHash": "sXLetnXSBqiTrxgQCpzlAlp8xcL/OC/XAQRNLZTlMnkMKjAer9csyUp7IdQGBjnA/4H9lDTPZDT85aihHNWqkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskList\\TaskList.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\srw33\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\srw33\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\srw33\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

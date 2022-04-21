@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wG6wo8zl4i8rkT7hJo+m07KMtR62qXvURKrTVN8O6K3IuRjhwBUTgCJgD0mgz70TVoFNxnKu1cCDjKfQlTpwHA==",
+  "dgSpecHash": "hc/Bdc/EDieS7CxzkETuA9rNxEA+3PUvXMO6fcqK6mm5ZFP2eWMvsnfibn4xOWgBZ4UQTOb7wxs4AtDoeGzDoA==",
   "success": true,
   "projectFilePath": "C:\\Users\\srw33\\Desktop\\Class\\CSDS 393\\TaskTrackingCalendar\\TaskListTests\\TaskListTests.csproj",
   "expectedPackageFiles": [
@@ -91,7 +91,10 @@
     "C:\\Users\\srw33\\.nuget\\packages\\system.threading.tasks.extensions\\4.3.0\\system.threading.tasks.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\srw33\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\srw33\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\srw33\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\srw33\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\srw33\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\srw33\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\srw33\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
